@@ -383,12 +383,18 @@ const Landing = () => {
           <Link to="/">
             <Logo size="md" />
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 sm:gap-2">
             <Button variant="ghost" className="text-sm font-medium" asChild>
-              <Link to="/auth">Log in</Link>
+              <Link to="/">Home</Link>
+            </Button>
+            <Button variant="ghost" className="text-sm font-medium" asChild>
+              <Link to="/vacancies">Vacancies</Link>
+            </Button>
+            <Button variant="ghost" className="text-sm font-medium" asChild>
+              <Link to="/about">About Us</Link>
             </Button>
             <Button className="hidden sm:inline-flex text-sm font-semibold" asChild>
-              <Link to="/auth">Sign up</Link>
+              <a href="#book">Book appointment</a>
             </Button>
           </div>
         </div>
@@ -413,9 +419,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[6deg]">
-                <img src={eventChill} alt="Chill code workshop" className="w-full h-[150px] object-cover" />
+                <img src={eventChill} alt="Truck driving career" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Workshop</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Truck Drivers</span>
                 </div>
               </div>
             </motion.div>
@@ -428,9 +434,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.35 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[-5deg]">
-                <img src={eventJam} alt="Late night jam" className="w-full h-[150px] object-cover" />
+                <img src={eventJam} alt="Factory work" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Social</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Factory Work</span>
                 </div>
               </div>
             </motion.div>
@@ -443,9 +449,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.25 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[-6deg]">
-                <img src={eventStartup} alt="Startup weekend" className="w-full h-[150px] object-cover" />
+                <img src={eventStartup} alt="Warehouse work" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Hackathon</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Warehouse</span>
                 </div>
               </div>
             </motion.div>
@@ -458,9 +464,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.4 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[5deg]">
-                <img src={eventSummit} alt="Vibe coding summit" className="w-full h-[150px] object-cover" />
+                <img src={eventSummit} alt="Careers in Romania" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Conference</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Romania</span>
                 </div>
               </div>
             </motion.div>
@@ -512,7 +518,7 @@ const Landing = () => {
                 {hero.subhead}
               </p>
               <Button size="lg" className="text-base font-semibold px-9 h-14 shadow-xl shadow-foreground/10" asChild>
-                <Link to="/auth">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                <Link to="/vacancies">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
             </motion.div>
           </div>
