@@ -34,6 +34,12 @@
     --input: 0 0% 91%;
     --ring: 340 75% 58%;
 
+    /* Romanian flag accents */
+    --ro-blue: 220 70% 32%;
+    --ro-blue-soft: 220 60% 45%;
+    --ro-yellow: 46 95% 52%;
+    --ro-red: 355 72% 48%;
+
     --radius: 0.5rem;
 
     --success: 172 50% 40%;
