@@ -383,12 +383,18 @@ const Landing = () => {
           <Link to="/">
             <Logo size="md" />
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 sm:gap-2">
             <Button variant="ghost" className="text-sm font-medium" asChild>
-              <Link to="/auth">Log in</Link>
+              <Link to="/">Home</Link>
+            </Button>
+            <Button variant="ghost" className="text-sm font-medium" asChild>
+              <Link to="/vacancies">Vacancies</Link>
+            </Button>
+            <Button variant="ghost" className="text-sm font-medium" asChild>
+              <Link to="/about">About Us</Link>
             </Button>
             <Button className="hidden sm:inline-flex text-sm font-semibold" asChild>
-              <Link to="/auth">Sign up</Link>
+              <a href="#book">Book appointment</a>
             </Button>
           </div>
         </div>
@@ -413,9 +419,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.2 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[6deg]">
-                <img src={eventChill} alt="Chill code workshop" className="w-full h-[150px] object-cover" />
+                <img src={eventChill} alt="Truck driving career" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Workshop</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Truck Drivers</span>
                 </div>
               </div>
             </motion.div>
@@ -428,9 +434,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.35 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[-5deg]">
-                <img src={eventJam} alt="Late night jam" className="w-full h-[150px] object-cover" />
+                <img src={eventJam} alt="Factory work" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Social</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Factory Work</span>
                 </div>
               </div>
             </motion.div>
@@ -443,9 +449,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.25 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[-6deg]">
-                <img src={eventStartup} alt="Startup weekend" className="w-full h-[150px] object-cover" />
+                <img src={eventStartup} alt="Warehouse work" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Hackathon</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Warehouse</span>
                 </div>
               </div>
             </motion.div>
@@ -458,9 +464,9 @@ const Landing = () => {
               transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.4 }}
             >
               <div className="rounded-2xl overflow-hidden shadow-lg rotate-[5deg]">
-                <img src={eventSummit} alt="Vibe coding summit" className="w-full h-[150px] object-cover" />
+                <img src={eventSummit} alt="Careers in Romania" className="w-full h-[150px] object-cover" />
                 <div className="bg-card px-3 py-2">
-                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Conference</span>
+                  <span className="text-xs font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Romania</span>
                 </div>
               </div>
             </motion.div>
@@ -512,7 +518,7 @@ const Landing = () => {
                 {hero.subhead}
               </p>
               <Button size="lg" className="text-base font-semibold px-9 h-14 shadow-xl shadow-foreground/10" asChild>
-                <Link to="/auth">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                <Link to="/vacancies">{hero.cta} <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
             </motion.div>
           </div>
@@ -533,7 +539,7 @@ const Landing = () => {
                 {popular.subhead}
               </p>
             </div>
-            <Link to="/auth" className="group inline-flex items-center gap-2 text-primary font-semibold text-sm self-start md:self-end">
+            <Link to="/vacancies" className="group inline-flex items-center gap-2 text-primary font-semibold text-sm self-start md:self-end">
               {popular.cta_label}
               <span className="w-9 h-9 rounded-full bg-primary text-primary-foreground inline-flex items-center justify-center group-hover:translate-x-1 transition-transform">
                 <ArrowRight className="w-4 h-4" />
@@ -542,10 +548,10 @@ const Landing = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { img: eventHackathon, title: "AI hackathon", tag: "Free", date: "Sat, Mar 28", city: "San Francisco" },
-              { img: eventChill, title: "Chill code workshop", tag: "Free", date: "Thu, Apr 3", city: "London" },
-              { img: eventStartup, title: "Startup weekend", tag: "$25", date: "Fri, Apr 11", city: "New York" },
-              { img: eventSummit, title: "Vibe coding summit", tag: "Free", date: "Sat, Apr 19", city: "Remote" },
+              { img: eventHackathon, title: "Truck Driver (CE License)", tag: "Open", date: "€1,800–€2,400 / mo", city: "Bucharest, Romania" },
+              { img: eventChill, title: "Factory Worker — Production", tag: "Open", date: "€1,100–€1,400 / mo", city: "Cluj-Napoca, Romania" },
+              { img: eventStartup, title: "Warehouse Worker", tag: "Open", date: "€1,000–€1,300 / mo", city: "Timișoara, Romania" },
+              { img: eventSummit, title: "Truck Driver — International", tag: "Open", date: "€2,200–€2,800 / mo", city: "Constanța, Romania" },
             ].map((event, i) => (
               <motion.div
                 key={event.title}
@@ -843,7 +849,7 @@ const Landing = () => {
                     {ctaContent.subhead}
                   </p>
                   <Button size="lg" className="text-base font-semibold px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-                    <Link to="/auth">{ctaContent.cta_label} <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                    <a href="#book">{ctaContent.cta_label} <ArrowRight className="ml-2 w-4 h-4" /></a>
                   </Button>
                 </motion.div>
               </div>
@@ -852,85 +858,22 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* Booking */}
+      <BookingSection />
+
       {/* Footer */}
       <footer className="py-12 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <Logo size="md" />
-          <p className="text-sm text-muted-foreground">© 2026 eventspark. All rights reserved.</p>
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            <span className="h-3 w-2 rounded-sm bg-ro-blue" />
+            <span className="h-3 w-2 rounded-sm bg-ro-yellow" />
+            <span className="h-3 w-2 rounded-sm bg-ro-red" />
+          </div>
+          <p className="text-sm text-muted-foreground">© 2026 EuroBridge Careers. All rights reserved.</p>
         </div>
       </footer>
 
-      {/* Dev picker */}
-      <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-[9999]">
-        <button
-          onClick={() => setDevOpen(!devOpen)}
-          className="mx-auto flex items-center gap-1.5 bg-foreground text-background text-xs font-medium px-4 py-1.5 rounded-t-lg shadow-lg"
-        >
-          🎨 Dev tools {devOpen ? <ChevronDown className="w-3 h-3" /> : <ChevronUp className="w-3 h-3" />}
-        </button>
-        {devOpen && (
-          <div className="bg-card border border-border rounded-t-xl shadow-2xl p-4 w-[340px] space-y-4">
-            <div>
-              <label className="text-xs font-medium text-muted-foreground mb-1 block">Title font weight</label>
-              <select
-                value={titleWeight}
-                onChange={(e) => setTitleWeight(Number(e.target.value))}
-                className="w-full text-sm bg-background border border-input rounded-lg px-3 py-2 text-foreground"
-              >
-                {fontWeightOptions.map((f) => (
-                  <option key={f.value} value={f.value}>{f.label}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="text-xs font-medium text-muted-foreground mb-1 block">Bento colour style</label>
-              <div className="flex gap-1.5">
-                {bentoPresets.map((preset, idx) => (
-                  <button
-                    key={preset.label}
-                    onClick={() => setBentoStyle(idx)}
-                    className={`text-xs px-3 py-1.5 rounded-lg border transition-colors ${bentoStyle === idx ? "bg-primary text-primary-foreground border-primary" : "bg-background border-input text-foreground hover:bg-muted"}`}
-                  >
-                    {preset.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <label className="flex items-center justify-between cursor-pointer">
-              <span className="text-xs font-medium text-muted-foreground">Confetti visible</span>
-              <input type="checkbox" checked={confettiCount > 0} onChange={(e) => setConfettiCount(e.target.checked ? 6 : 0)} className="accent-primary w-4 h-4" />
-            </label>
-            <div className="border-t border-border pt-3 space-y-2">
-              <label className="text-xs font-medium text-muted-foreground block">Confetti</label>
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] text-muted-foreground">Size</span>
-                  <span className="text-[11px] text-muted-foreground w-8 text-right">{confettiSize.toFixed(1)}</span>
-                </div>
-                <input type="range" min="0.3" max="2.5" step="0.1" value={confettiSize} onChange={(e) => setConfettiSize(Number(e.target.value))} className="w-full h-1.5 accent-primary" />
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] text-muted-foreground">Boldness</span>
-                  <span className="text-[11px] text-muted-foreground w-8 text-right">{Math.round(confettiOpacity * 100)}%</span>
-                </div>
-                <input type="range" min="0.1" max="1" step="0.05" value={confettiOpacity} onChange={(e) => setConfettiOpacity(Number(e.target.value))} className="w-full h-1.5 accent-primary" />
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] text-muted-foreground">Amount</span>
-                  <span className="text-[11px] text-muted-foreground w-8 text-right">{confettiCount}</span>
-                </div>
-                <input type="range" min="1" max="8" step="1" value={confettiCount} onChange={(e) => setConfettiCount(Number(e.target.value))} className="w-full h-1.5 accent-primary" />
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] text-muted-foreground">Spread</span>
-                  <span className="text-[11px] text-muted-foreground w-8 text-right">{confettiSpread.toFixed(1)}</span>
-                </div>
-                <input type="range" min="0.5" max="2" step="0.1" value={confettiSpread} onChange={(e) => setConfettiSpread(Number(e.target.value))} className="w-full h-1.5 accent-primary" />
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 };

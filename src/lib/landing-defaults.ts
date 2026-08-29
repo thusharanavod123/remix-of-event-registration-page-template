@@ -45,46 +45,46 @@ export interface CtaContent {
 
 export const LANDING_DEFAULTS = {
   hero: {
-    badge: "For organizers everywhere",
-    headline_prefix: "The event platform where ideas become",
-    rotating_words: ["events.", "experiences.", "communities.", "connections."],
+    badge: "Now recruiting for Romania",
+    headline_prefix: "Your European career becomes",
+    rotating_words: ["reality.", "a new life.", "opportunity.", "growth."],
     subhead:
-      "Whatever your event — from workshops to conferences — build branded registration pages, track attendees, and grow your community. No code required.",
-    cta: "Get started",
+      "We connect Sri Lankan job seekers with trusted European employers — truck driving, factory, and warehouse roles in Romania, with full support from application to arrival.",
+    cta: "View vacancies",
   } as HeroContent,
   popular_events: {
-    title_line_1: "Popular events",
-    title_line_2: "on eventspark",
-    subhead: "A glimpse at the experiences our community is hosting right now.",
-    cta_label: "Browse all events",
+    title_line_1: "Open vacancies",
+    title_line_2: "in Romania",
+    subhead: "High-demand roles with vetted employers, fair salaries, and accommodation support.",
+    cta_label: "Browse all vacancies",
   } as PopularEventsContent,
   features: {
-    eyebrow: "Built for organizers",
+    eyebrow: "Built for job seekers",
     title_line_1: "Everything you need to",
-    title_line_2: "run amazing events.",
-    subhead: "From page creation to post-event analytics, eventspark has you covered.",
+    title_line_2: "work in Europe.",
+    subhead: "From your first consultation to your first paycheck, EuroBridge Careers has you covered.",
     items: [
-      { tag: "Pages", title: "Pages in minutes", description: "Beautiful registration pages that make your event shine — no design skills needed." },
-      { tag: "Insights", title: "Understand everything", description: "Live dashboards that show where attendees come from, drop off, and convert." },
-      { tag: "Integrations", title: "Integrate with everything", description: "Connect Zoom, HubSpot, Mailchimp, and 20+ tools in a few clicks." },
-      { tag: "Audience", title: "One hub for everyone", description: "Manage, message, and track every attendee from a single beautiful dashboard." },
+      { tag: "Guidance", title: "End-to-end support", description: "Documents, visas, travel, and settling in — our team walks with you at every step." },
+      { tag: "Trust", title: "Vetted employers only", description: "Every offer is real, legal, and fairly paid. We partner directly with European companies." },
+      { tag: "Clarity", title: "Full transparency", description: "Know the salary, conditions, and process before you commit. No hidden fees, ever." },
+      { tag: "Community", title: "One hub for everyone", description: "Sinhala, Tamil, and English speaking staff — book an office visit and talk face to face." },
     ],
   } as FeaturesContent,
   testimonials: {
-    title: "Loved by organizers",
+    title: "Loved by our candidates",
     items: [
-      { quote: "eventspark cut our setup time by 80%. We went from spending hours on registration to minutes.", name: "Sarah Chen", role: "Community manager" },
-      { quote: "The analytics alone are worth it. We finally know where our attendees are coming from.", name: "Marcus Williams", role: "Event coordinator" },
-      { quote: "Clean, professional, and easy to use. Our attendees always compliment the registration experience.", name: "Priya Patel", role: "Startup founder" },
-      { quote: "We switched from three different tools to just eventspark. Everything in one place is a game changer.", name: "James Liu", role: "Tech meetup organizer" },
-      { quote: "Our registrations doubled after switching. The pages just look so much more professional.", name: "Amara Osei", role: "Conference director" },
+      { quote: "EuroBridge got me a truck driving job in Bucharest in six weeks. They handled everything — I just showed up.", name: "Nuwan Perera", role: "Truck driver, Bucharest" },
+      { quote: "The team explained every step in Sinhala. I never felt lost in the process.", name: "Kasun Fernando", role: "Warehouse worker, Timișoara" },
+      { quote: "Honest people. The salary and conditions they promised are exactly what I got.", name: "Dilani Silva", role: "Factory worker, Cluj-Napoca" },
+      { quote: "From Colombo to Constanța, they supported me through documents, visa, and travel.", name: "Ravi Kumar", role: "Truck driver, Constanța" },
+      { quote: "My whole family thanks EuroBridge. This opportunity changed our lives.", name: "Amara Jayasinghe", role: "Factory worker, Iași" },
     ],
   } as TestimonialsContent,
   cta: {
-    title_line_1: "Ready to spark",
-    title_line_2: "your next event?",
-    subhead: "Join thousands of organizers who use eventspark to build better events.",
-    cta_label: "Get started for free",
+    title_line_1: "Ready to start",
+    title_line_2: "your journey?",
+    subhead: "Book an office appointment today and let's find the European opportunity that fits you.",
+    cta_label: "Book an appointment",
   } as CtaContent,
 };
 
@@ -98,7 +98,7 @@ export type LandingContentMap = {
 
 export const LANDING_SECTION_LABELS: Record<LandingSectionKey, string> = {
   hero: "Hero",
-  popular_events: "Popular events heading",
+  popular_events: "Vacancies heading",
   features: "Features grid",
   testimonials: "Testimonials",
   cta: "Final call to action",
