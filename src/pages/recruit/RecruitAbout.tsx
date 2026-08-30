@@ -1,4 +1,5 @@
 import { Compass, Handshake, ShieldCheck } from "lucide-react";
+import TeamSection from "@/components/recruit/TeamSection";
 
 const values = [
   {
@@ -82,6 +83,8 @@ export default function RecruitAbout() {
           ))}
         </div>
       </div>
+
+<TeamSection />
 
       <div className="mt-16 rounded-2xl bg-secondary/60 p-8 text-center">
         <h2 className="font-display text-2xl font-bold">Ready to take the next step?</h2>
