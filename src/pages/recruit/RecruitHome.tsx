@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, Factory, Truck, Warehouse } from "lucide-react";
+import { FaqSection } from "@/components/recruit/FaqSection";
 
 const roles = [
   {
@@ -119,6 +120,9 @@ export default function RecruitHome() {
           </a>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FaqSection />
     </div>
   );
 }
