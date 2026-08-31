@@ -6,39 +6,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 30% 14%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 30% 14%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 30% 14%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 340 75% 58%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 10% 94%;
-    --secondary-foreground: 240 30% 14%;
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 240 10% 96%;
-    --muted-foreground: 240 5% 46%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 240 10% 94%;
-    --accent-foreground: 240 30% 14%;
+    --accent: 214 32% 91%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 0 0% 91%;
     --input: 0 0% 91%;
-    --ring: 340 75% 58%;
+    --ring: 217 91% 60%;
 
     /* Romanian flag accents */
-    --ro-blue: 220 70% 32%;
-    --ro-blue-soft: 220 60% 45%;
-    --ro-yellow: 46 95% 52%;
-    --ro-red: 355 72% 48%;
+    --ro-blue: 226 57% 21%;
+    --ro-blue-soft: 217 91% 60%;
+    --ro-yellow: 38 92% 50%;
+    --ro-red: 0 72% 51%;
 
     --radius: 0.5rem;
 
@@ -48,13 +48,13 @@
     --warning-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 240 30% 14%;
-    --sidebar-primary: 340 75% 58%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 240 30% 14%;
+    --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 340 75% 58%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
@@ -67,7 +67,7 @@
     --popover: 240 25% 11%;
     --popover-foreground: 240 5% 95%;
 
-    --primary: 340 75% 58%;
+    --primary: 217 91% 64%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 15% 18%;
@@ -84,16 +84,16 @@
 
     --border: 240 15% 20%;
     --input: 240 15% 20%;
-    --ring: 340 75% 58%;
+    --ring: 217 91% 64%;
 
     --sidebar-background: 240 25% 8%;
     --sidebar-foreground: 240 5% 85%;
-    --sidebar-primary: 340 75% 58%;
+    --sidebar-primary: 217 91% 64%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 15% 14%;
     --sidebar-accent-foreground: 240 5% 95%;
     --sidebar-border: 240 15% 16%;
-    --sidebar-ring: 340 75% 58%;
+    --sidebar-ring: 217 91% 64%;
   }
 }
 
