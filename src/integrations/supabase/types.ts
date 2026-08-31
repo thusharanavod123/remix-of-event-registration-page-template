@@ -491,6 +491,33 @@ export type Database = {
         }
         Relationships: []
       }
+      faqs: {
+        Row: {
+          answer: string
+          created_at: string
+          id: string
+          question: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string
+          id?: string
+          question: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          id?: string
+          question?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       form_fields: {
         Row: {
           event_id: string
@@ -737,6 +764,48 @@ export type Database = {
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
+        }
+        Relationships: []
+      }
+      vacancies: {
+        Row: {
+          city: string
+          country: string
+          created_at: string
+          description: string | null
+          id: string
+          job_type: string
+          salary: string
+          sort_order: number
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_type?: string
+          salary?: string
+          sort_order?: number
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_type?: string
+          salary?: string
+          sort_order?: number
+          status?: string
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }
