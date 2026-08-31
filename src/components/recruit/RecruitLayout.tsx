@@ -3,11 +3,18 @@ import { ArrowUpRight, Globe, HeartHandshake, MapPin, Menu, ShieldCheck, X } fro
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
+import { FaFacebookF, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/vacancies", label: "Vacancies" },
   { to: "/about", label: "About Us" },
+];
+
+const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: FaLinkedinIn },
+  { label: "TikTok", href: "https://www.tiktok.com/", icon: FaTiktok },
+  { label: "Facebook", href: "https://www.facebook.com/", icon: FaFacebookF },
 ];
 
 export function RecruitLayout() {
@@ -130,6 +137,13 @@ export function RecruitLayout() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><ShieldCheck className="h-4 w-4 text-ro-yellow" /> Vetted employers</span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><HeartHandshake className="h-4 w-4 text-ro-yellow" /> End-to-end support</span>
+              </div>
+              <div className="mt-7 flex items-center gap-2" aria-label="EuroBridge Careers social media">
+                {socialLinks.map(({ label, href, icon: Icon }) => (
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Follow EuroBridge Careers on ${label}`} title={label} className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-ro-yellow hover:bg-ro-yellow hover:text-ro-blue hover:shadow-lg hover:shadow-ro-yellow/15">
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
               </div>
             </div>
             <div>
