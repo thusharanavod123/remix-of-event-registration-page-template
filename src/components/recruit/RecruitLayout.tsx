@@ -1,6 +1,7 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
 import { ArrowUpRight, Globe, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
 
 const navItems = [
@@ -11,11 +12,29 @@ const navItems = [
 
 export function RecruitLayout() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateHeader = () => setScrolled(window.scrollY > 24);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+      <motion.header
+        initial={false}
+        animate={{
+          backgroundColor: scrolled ? "hsl(var(--background) / 0.88)" : "hsl(var(--background) / 0.96)",
+          borderColor: scrolled ? "hsl(var(--border) / 0.85)" : "hsl(var(--border))",
+          boxShadow: scrolled ? "0 12px 35px hsl(240 30% 14% / 0.09)" : "0 0 0 hsl(240 30% 14% / 0)",
+        }}
+        transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+        className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl"
+      >
+        <motion.div initial={false} animate={{ height: scrolled ? 56 : 64 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
+          <motion.div initial={false} animate={{ scale: scrolled ? 0.95 : 1 }} transition={{ duration: 0.28 }}>
           <Link to="/" className="flex items-center gap-2">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
               <Globe className="h-4 w-4" />
@@ -24,6 +43,7 @@ export function RecruitLayout() {
               EuroBridge<span className="text-primary"> Careers</span>
             </span>
           </Link>
+          </motion.div>
 
           <nav className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
@@ -57,7 +77,7 @@ export function RecruitLayout() {
           >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
-        </div>
+        </motion.div>
 
         {open && (
           <nav className="border-t border-border px-4 py-3 md:hidden">
@@ -85,7 +105,10 @@ export function RecruitLayout() {
             </a>
           </nav>
         )}
-      </header>
+        <motion.div initial={false} animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }} transition={{ duration: 0.4 }} className="absolute inset-x-0 bottom-0 h-px origin-center bg-gradient-to-r from-transparent via-primary/45 to-transparent" aria-hidden="true" />
+      </motion.header>
+
+      <div className="h-16 shrink-0" aria-hidden="true" />
 
       <main className="flex-1">
         <Outlet />
