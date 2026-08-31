@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Briefcase, Factory, Truck, Warehouse } from "lucide-react";
 import { FaqSection } from "@/components/recruit/FaqSection";
+import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import airportHero from "@/assets/hero/career-airport.png";
@@ -100,6 +101,8 @@ export default function RecruitHome() {
         </div>
         <motion.div key={`progress-${slide}`} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 6, ease: "linear" }} className="absolute bottom-0 left-0 z-20 h-1 w-full origin-left bg-ro-yellow" aria-hidden="true" />
       </section>
+
+      <PartnerMarquee />
 
       {/* Roles */}
       <section className="border-t border-border bg-card py-16">
