@@ -944,6 +944,7 @@ export type Database = {
     Functions: {
       accept_cohost_invitation: { Args: { _token: string }; Returns: Json }
       check_in_attendee: { Args: { p_registration_id: string }; Returns: Json }
+      claim_first_admin: { Args: never; Returns: boolean }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
