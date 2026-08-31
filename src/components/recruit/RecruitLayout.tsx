@@ -1,5 +1,5 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
-import { Globe, Menu, X } from "lucide-react";
+import { ArrowUpRight, Globe, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
 import { useState } from "react";
 import { BookingSection } from "./BookingSection";
 
@@ -93,17 +93,46 @@ export function RecruitLayout() {
 
       <BookingSection />
 
-      <footer className="border-t border-border bg-ro-blue text-primary-foreground">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 py-8 text-sm sm:flex-row sm:px-6">
-          <span className="font-display font-bold">EuroBridge Careers</span>
-          <div className="flex items-center gap-2">
-            <span className="h-3 w-2 rounded-sm bg-ro-blue-soft" />
-            <span className="h-3 w-2 rounded-sm bg-ro-yellow" />
-            <span className="h-3 w-2 rounded-sm bg-ro-red" />
-            <span className="ml-2 opacity-80">Sri Lanka → Europe</span>
+      <footer className="relative overflow-hidden bg-[hsl(222_55%_14%)] text-white">
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-ro-blue-soft/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 left-1/4 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
+        <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-16 sm:px-6 lg:pt-20">
+          <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.65fr_0.8fr_0.8fr]">
+            <div>
+              <Link to="/" className="inline-flex items-center gap-3" aria-label="EuroBridge Careers home">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-ro-blue shadow-lg shadow-black/15"><Globe className="h-5 w-5" /></span>
+                <span className="font-display text-xl font-bold tracking-tight">EuroBridge<span className="text-ro-yellow"> Careers</span></span>
+              </Link>
+              <p className="mt-5 max-w-md text-sm leading-6 text-white/65">Helping Sri Lankan job seekers access trusted European employment with clear guidance from application to arrival.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><ShieldCheck className="h-4 w-4 text-ro-yellow" /> Vetted employers</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><HeartHandshake className="h-4 w-4 text-ro-yellow" /> End-to-end support</span>
+              </div>
+            </div>
+            <div>
+              <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Explore</h2>
+              <nav className="mt-5 space-y-3" aria-label="Footer navigation">
+                {navItems.map((item) => <Link key={item.to} to={item.to} className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">{item.label}<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>)}
+                <a href="#book" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Book an appointment<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></a>
+              </nav>
+            </div>
+            <div>
+              <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Opportunities</h2>
+              <ul className="mt-5 space-y-3 text-sm text-white/75"><li>Truck driving</li><li>Factory operations</li><li>Warehouse & logistics</li></ul>
+              <Link to="/vacancies" className="mt-6 inline-flex items-center gap-2 rounded-full bg-ro-yellow px-5 py-2.5 text-sm font-semibold text-ro-blue transition-transform hover:-translate-y-0.5">View available jobs <ArrowUpRight className="h-4 w-4" /></Link>
+            </div>
+            <div>
+              <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Careers</h2>
+              <p className="mt-5 text-sm leading-6 text-white/65">Want to help people build careers across borders? Explore opportunities within our team.</p>
+              <Link to="/careers" className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-ro-yellow">Join EuroBridge <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></Link>
+            </div>
           </div>
-          <span className="opacity-70">© {new Date().getFullYear()} EuroBridge Careers. All rights reserved.</span>
+          <div className="flex flex-col gap-5 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+            <p>© {new Date().getFullYear()} EuroBridge Careers. All rights reserved.</p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
+          </div>
         </div>
+        <div className="flex h-1.5" aria-hidden="true"><span className="flex-1 bg-ro-blue-soft" /><span className="flex-1 bg-ro-yellow" /><span className="flex-1 bg-ro-red" /></div>
       </footer>
     </div>
   );

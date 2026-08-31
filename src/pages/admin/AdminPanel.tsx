@@ -11,6 +11,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useVacancies, useVacancyMutations, type Vacancy } from "@/hooks/useVacancies";
 import { useFaqs, useFaqMutations, type Faq } from "@/hooks/useFaqs";
 import { AppointmentsTab, AvailabilityTab } from "@/components/admin/AppointmentAdmin";
+import { CareersAdmin } from "@/components/admin/CareersAdmin";
 
 const emptyVacancy = {
   title: "",
@@ -364,6 +365,7 @@ export default function AdminPanel() {
             <TabsTrigger value="appointments">Appointments</TabsTrigger>
             <TabsTrigger value="availability">Availability</TabsTrigger>
             <TabsTrigger value="vacancies">Vacancies</TabsTrigger>
+            <TabsTrigger value="careers">Company Careers</TabsTrigger>
             <TabsTrigger value="faqs">FAQs</TabsTrigger>
           </TabsList>
           <TabsContent value="appointments" className="mt-6"><AppointmentsTab /></TabsContent>
@@ -371,6 +373,7 @@ export default function AdminPanel() {
           <TabsContent value="vacancies" className="mt-6">
             <VacanciesTab />
           </TabsContent>
+          <TabsContent value="careers" className="mt-6"><CareersAdmin /></TabsContent>
           <TabsContent value="faqs" className="mt-6">
             <FaqsTab />
           </TabsContent>
