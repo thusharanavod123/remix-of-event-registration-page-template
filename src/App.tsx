@@ -11,8 +11,8 @@ import RecruitHome from "@/pages/recruit/RecruitHome";
 import RecruitVacancies from "@/pages/recruit/RecruitVacancies";
 import RecruitAbout from "@/pages/recruit/RecruitAbout";
 import AdminPanel from "@/pages/admin/AdminPanel";
-import AdminClaim from "@/pages/admin/AdminClaim";
 import Auth from "@/pages/Auth";
+import ResetPassword from "@/pages/ResetPassword";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +27,7 @@ const App = () => (
           <AuthProvider>
             <Routes>
               <Route path="/auth" element={<Auth />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route
                 path="/admin"
                 element={
@@ -35,7 +36,6 @@ const App = () => (
                   </AdminOnly>
                 }
               />
-              <Route path="/admin/claim" element={<AdminClaim />} />
               <Route element={<RecruitLayout />}>
                 <Route path="/" element={<RecruitHome />} />
                 <Route path="/vacancies" element={<RecruitVacancies />} />

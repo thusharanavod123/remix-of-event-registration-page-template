@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useFaqs } from "@/hooks/useFaqs";
 
 export const FAQS = [
   {
@@ -34,6 +35,8 @@ export const FAQS = [
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { data } = useFaqs();
+  const faqs = data?.length ? data.map((faq) => ({ q: faq.question, a: faq.answer })) : FAQS;
 
   return (
     <section id="faq" className="py-20 lg:py-28">
@@ -58,7 +61,7 @@ export function FaqSection() {
         </motion.div>
 
         <div className="space-y-3">
-          {FAQS.map((faq, i) => {
+          {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <motion.div

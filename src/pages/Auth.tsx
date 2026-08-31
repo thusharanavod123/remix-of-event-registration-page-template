@@ -16,7 +16,7 @@ import { staggerContainer, staggerItem } from "@/components/motion/Reveal";
 const Auth = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const redirectTo = searchParams.get("redirect") || "/dashboard";
+  const redirectTo = searchParams.get("redirect") || "/admin";
   const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [loginEmail, setLoginEmail] = useState("");
@@ -107,20 +107,15 @@ const Auth = () => {
             <Logo size="lg" />
           </Link>
           <p className="text-muted-foreground mt-2 text-sm font-body">
-            Create events people actually want to attend
+            Secure administrator access
           </p>
         </motion.div>
 
         {/* Auth card */}
         <motion.div variants={staggerItem} className="bg-card rounded-2xl border border-border shadow-lg p-6 sm:p-7">
           <Tabs defaultValue="login">
-            <TabsList className="grid w-full grid-cols-2 rounded-full bg-muted p-1 mb-6">
-              <TabsTrigger value="login" className="rounded-full data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium">
-                Log in
-              </TabsTrigger>
-              <TabsTrigger value="signup" className="rounded-full data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium">
-                Sign up
-              </TabsTrigger>
+            <TabsList className="grid w-full grid-cols-1 rounded-full bg-muted p-1 mb-6">
+              <TabsTrigger value="login" className="rounded-full data-[state=active]:bg-card data-[state=active]:shadow-sm text-sm font-medium">Admin login</TabsTrigger>
             </TabsList>
 
             <TabsContent value="login" className="mt-0">
@@ -193,7 +188,7 @@ const Auth = () => {
               </Button>
             </TabsContent>
 
-            <TabsContent value="signup" className="mt-0">
+            <TabsContent value="signup" className="mt-0 hidden">
               <form onSubmit={handleSignup} className="space-y-4" data-testid="signup-form">
                 <div className="space-y-1.5">
                   <Label htmlFor="name-signup" className="text-sm font-medium text-foreground">Full name</Label>

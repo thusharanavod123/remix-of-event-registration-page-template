@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useVacancies, useVacancyMutations, type Vacancy } from "@/hooks/useVacancies";
 import { useFaqs, useFaqMutations, type Faq } from "@/hooks/useFaqs";
+import { AppointmentsTab, AvailabilityTab } from "@/components/admin/AppointmentAdmin";
 
 const emptyVacancy = {
   title: "",
@@ -353,16 +354,20 @@ export default function AdminPanel() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-        <h1 className="font-display text-2xl font-bold">Content management</h1>
+        <h1 className="font-display text-2xl font-bold">Site management</h1>
         <p className="mt-1 text-sm text-muted-foreground">
           Signed in as {user?.email}. Changes appear on the public site immediately.
         </p>
 
-        <Tabs defaultValue="vacancies" className="mt-8">
-          <TabsList>
+        <Tabs defaultValue="appointments" className="mt-8">
+          <TabsList className="h-auto flex-wrap justify-start">
+            <TabsTrigger value="appointments">Appointments</TabsTrigger>
+            <TabsTrigger value="availability">Availability</TabsTrigger>
             <TabsTrigger value="vacancies">Vacancies</TabsTrigger>
             <TabsTrigger value="faqs">FAQs</TabsTrigger>
           </TabsList>
+          <TabsContent value="appointments" className="mt-6"><AppointmentsTab /></TabsContent>
+          <TabsContent value="availability" className="mt-6"><AvailabilityTab /></TabsContent>
           <TabsContent value="vacancies" className="mt-6">
             <VacanciesTab />
           </TabsContent>
