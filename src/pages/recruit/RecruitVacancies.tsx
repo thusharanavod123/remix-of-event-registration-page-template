@@ -1,37 +1,20 @@
 import { useMemo, useState } from "react";
-import { MapPin, Search, SlidersHorizontal } from "lucide-react";
-
-interface Vacancy {
-  id: number;
-  title: string;
-  country: string;
-  city: string;
-  salary: string;
-  type: string;
-  status: "Open" | "Coming soon";
-}
-
-const VACANCIES: Vacancy[] = [
-  { id: 1, title: "Truck Driver (CE License)", country: "Romania", city: "Bucharest", salary: "€1,800 – €2,400 / month", type: "Full-time", status: "Open" },
-  { id: 2, title: "Factory Worker — Production Line", country: "Romania", city: "Cluj-Napoca", salary: "€1,100 – €1,400 / month", type: "Full-time", status: "Open" },
-  { id: 3, title: "Warehouse Worker", country: "Romania", city: "Timișoara", salary: "€1,000 – €1,300 / month", type: "Full-time", status: "Open" },
-  { id: 4, title: "Truck Driver — International Routes", country: "Romania", city: "Constanța", salary: "€2,200 – €2,800 / month", type: "Full-time", status: "Open" },
-  { id: 5, title: "Factory Worker — Assembly", country: "Romania", city: "Iași", salary: "€1,050 – €1,350 / month", type: "Full-time", status: "Open" },
-  { id: 6, title: "Warehouse Forklift Operator", country: "Romania", city: "Brașov", salary: "€1,200 – €1,500 / month", type: "Full-time", status: "Open" },
-  { id: 7, title: "Warehouse Operative", country: "Hungary", city: "Budapest", salary: "TBA", type: "Full-time", status: "Coming soon" },
-  { id: 8, title: "Factory Worker", country: "Poland", city: "Warsaw", salary: "TBA", type: "Full-time", status: "Coming soon" },
-  { id: 9, title: "Truck Driver", country: "Bulgaria", city: "Sofia", salary: "TBA", type: "Full-time", status: "Coming soon" },
-];
-
-const COUNTRIES = ["All countries", ...Array.from(new Set(VACANCIES.map((v) => v.country)))];
+import { Loader2, MapPin, Search, SlidersHorizontal } from "lucide-react";
+import { useVacancies } from "@/hooks/useVacancies";
 
 export default function RecruitVacancies() {
+  const { data: vacancies = [], isLoading } = useVacancies();
   const [query, setQuery] = useState("");
-  const [country, setCountry] = useState(COUNTRIES[0]);
+  const [country, setCountry] = useState("All countries");
+
+  const countries = useMemo(
+    () => ["All countries", ...Array.from(new Set(vacancies.map((v) => v.country)))],
+    [vacancies]
+  );
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return VACANCIES.filter((v) => {
+    return vacancies.filter((v) => {
       const matchQ =
         !q ||
         v.title.toLowerCase().includes(q) ||
@@ -40,7 +23,7 @@ export default function RecruitVacancies() {
       const matchC = country === "All countries" || v.country === country;
       return matchQ && matchC;
     });
-  }, [query, country]);
+  }, [query, country, vacancies]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -72,7 +55,7 @@ export default function RecruitVacancies() {
             onChange={(e) => setCountry(e.target.value)}
             className="w-full appearance-none rounded-full border border-input bg-card py-3 pl-11 pr-8 text-sm outline-none focus:ring-2 focus:ring-ring"
           >
-            {COUNTRIES.map((c) => (
+            {countries.map((c) => (
               <option key={c}>{c}</option>
             ))}
           </select>
@@ -80,53 +63,64 @@ export default function RecruitVacancies() {
       </div>
 
       {/* Results */}
-      <p className="mt-6 text-sm text-muted-foreground">
-        {results.length} {results.length === 1 ? "vacancy" : "vacancies"} found
-      </p>
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        {results.map((v) => (
-          <article
-            key={v.id}
-            className="rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md"
-          >
-            <div className="flex items-start justify-between gap-3">
-              <h2 className="font-display text-lg font-semibold">{v.title}</h2>
-              <span
-                className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
-                  v.status === "Open"
-                    ? "bg-ro-yellow/25 text-ro-blue"
-                    : "bg-muted text-muted-foreground"
-                }`}
-              >
-                {v.status}
-              </span>
-            </div>
-            <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
-              <MapPin className="h-3.5 w-3.5 text-ro-red" />
-              {v.city}, {v.country}
-            </p>
-            <div className="mt-4 flex items-center justify-between border-t border-border pt-4 text-sm">
-              <span className="font-medium">{v.salary}</span>
-              <span className="text-muted-foreground">{v.type}</span>
-            </div>
-            <a
-              href="#book"
-              className={`mt-4 block rounded-full py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-90 ${
-                v.status === "Open"
-                  ? "bg-primary text-primary-foreground"
-                  : "cursor-default bg-muted text-muted-foreground"
-              }`}
-            >
-              {v.status === "Open" ? "Apply — book an appointment" : "Opening next month"}
-            </a>
-          </article>
-        ))}
-        {results.length === 0 && (
-          <p className="col-span-full rounded-2xl border border-dashed border-border py-16 text-center text-sm text-muted-foreground">
-            No vacancies match your search. Try a different keyword or country.
+      {isLoading ? (
+        <div className="mt-10 flex items-center gap-2 text-sm text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" /> Loading vacancies…
+        </div>
+      ) : (
+        <>
+          <p className="mt-6 text-sm text-muted-foreground">
+            {results.length} {results.length === 1 ? "vacancy" : "vacancies"} found
           </p>
-        )}
-      </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            {results.map((v) => (
+              <article
+                key={v.id}
+                className="rounded-2xl border border-border bg-card p-5 transition-shadow hover:shadow-md"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h2 className="font-display text-lg font-semibold">{v.title}</h2>
+                  <span
+                    className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${
+                      v.status === "Open"
+                        ? "bg-ro-yellow/25 text-ro-blue"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {v.status}
+                  </span>
+                </div>
+                <p className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <MapPin className="h-3.5 w-3.5 text-ro-red" />
+                  {v.city}, {v.country}
+                </p>
+                {v.description && (
+                  <p className="mt-3 text-sm text-muted-foreground">{v.description}</p>
+                )}
+                <div className="mt-4 flex items-center justify-between border-t border-border pt-4 text-sm">
+                  <span className="font-medium">{v.salary}</span>
+                  <span className="text-muted-foreground">{v.job_type}</span>
+                </div>
+                <a
+                  href="#book"
+                  className={`mt-4 block rounded-full py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-90 ${
+                    v.status === "Open"
+                      ? "bg-primary text-primary-foreground"
+                      : "cursor-default bg-muted text-muted-foreground"
+                  }`}
+                >
+                  {v.status === "Open" ? "Apply — book an appointment" : "Opening soon"}
+                </a>
+              </article>
+            ))}
+            {results.length === 0 && (
+              <p className="col-span-full rounded-2xl border border-dashed border-border py-16 text-center text-sm text-muted-foreground">
+                No vacancies match your search. Try a different keyword or country.
+              </p>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }

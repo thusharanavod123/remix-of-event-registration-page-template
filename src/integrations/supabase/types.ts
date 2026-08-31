@@ -491,6 +491,33 @@ export type Database = {
         }
         Relationships: []
       }
+      faqs: {
+        Row: {
+          answer: string
+          created_at: string
+          id: string
+          question: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          created_at?: string
+          id?: string
+          question: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          created_at?: string
+          id?: string
+          question?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       form_fields: {
         Row: {
           event_id: string
@@ -740,6 +767,48 @@ export type Database = {
         }
         Relationships: []
       }
+      vacancies: {
+        Row: {
+          city: string
+          country: string
+          created_at: string
+          description: string | null
+          id: string
+          job_type: string
+          salary: string
+          sort_order: number
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_type?: string
+          salary?: string
+          sort_order?: number
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          job_type?: string
+          salary?: string
+          sort_order?: number
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       public_events: {
@@ -875,6 +944,7 @@ export type Database = {
     Functions: {
       accept_cohost_invitation: { Args: { _token: string }; Returns: Json }
       check_in_attendee: { Args: { p_registration_id: string }; Returns: Json }
+      claim_first_admin: { Args: never; Returns: boolean }
       delete_email: {
         Args: { message_id: number; queue_name: string }
         Returns: boolean
