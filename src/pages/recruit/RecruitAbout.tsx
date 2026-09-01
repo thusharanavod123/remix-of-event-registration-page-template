@@ -1,5 +1,6 @@
 import { Award, BadgeCheck, Compass, Handshake, Medal, ShieldCheck, Trophy } from "lucide-react";
 import TeamSection from "@/components/recruit/TeamSection";
+import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
 
 const values = [
   {
@@ -30,11 +31,24 @@ const credentials = [
 
 export default function RecruitAbout() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <span className="text-xs font-semibold uppercase tracking-wide text-ro-red">About us</span>
-      <h1 className="mt-3 max-w-2xl font-display text-3xl font-bold sm:text-4xl">
-        Bridging Sri Lankan talent with European opportunity
-      </h1>
+    <div>
+      <header className="relative overflow-hidden border-b border-slate-300 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300">
+        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/50 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+          <div className="flex justify-center">
+            <img src={companyLogo} alt="Elladria Lanka" className="h-16 w-52 object-contain opacity-70 sm:h-20 sm:w-64" />
+          </div>
+          <span className="mt-8 block text-xs font-bold uppercase tracking-[0.2em] text-ro-red">About us</span>
+          <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl lg:text-5xl">
+            Bridging Sri Lankan talent with European opportunity
+          </h1>
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+            Safe, transparent, and professional guidance for every stage of your international career journey.
+          </p>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
         <div className="space-y-5 text-muted-foreground">
@@ -130,6 +144,7 @@ export default function RecruitAbout() {
         >
           Book an appointment
         </a>
+      </div>
       </div>
     </div>
   );
