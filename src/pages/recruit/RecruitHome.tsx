@@ -1,5 +1,17 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Briefcase, Factory, Truck, Warehouse } from "lucide-react";
+import {
+  ArrowRight,
+  Briefcase,
+  CalendarCheck2,
+  ClipboardCheck,
+  FileSearch,
+  Factory,
+  MessagesSquare,
+  Plane,
+  Route,
+  Truck,
+  Warehouse,
+} from "lucide-react";
 import { FaqSection } from "@/components/recruit/FaqSection";
 import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
 import { useEffect, useState } from "react";
@@ -33,6 +45,44 @@ const roles = [
     title: "Warehouse Workers",
     desc: "Sorting, packing, and logistics roles in modern distribution centers across Romania.",
     accent: "bg-ro-red",
+  },
+];
+
+const serviceSteps = [
+  {
+    icon: ClipboardCheck,
+    title: "Choose Your Visa & Service",
+    description: "Select the right support for your tourist, student, work, employment, or business visa.",
+  },
+  {
+    icon: FileSearch,
+    title: "Document Checklist & Preparation",
+    description: "Receive a personalized checklist and practical guidance for gathering every required supporting document.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Thorough Review & Form Guidance",
+    description: "We carefully review your documents and guide you through the forms to help prevent errors and delays.",
+  },
+  {
+    icon: CalendarCheck2,
+    title: "Appointment & Submission",
+    description: "Follow clear instructions for scheduling your embassy appointment and submitting your application smoothly.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "Interview Preparation",
+    description: "Build confidence with tailored embassy interview preparation and one-to-one coaching.",
+  },
+  {
+    icon: Route,
+    title: "Status Tracking & Follow-up",
+    description: "Stay informed with application tracking and guidance for any necessary embassy follow-up.",
+  },
+  {
+    icon: Plane,
+    title: "Flight Booking & Departure",
+    description: "Complete your journey with our air-ticket service and practical support as you prepare to take off.",
   },
 ];
 
@@ -160,9 +210,61 @@ export default function RecruitHome() {
         </div>
       </section>
 
+      {/* Customer journey */}
+      <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-28">
+        <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full bg-ro-blue/5 blur-3xl" aria-hidden="true" />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">How we support you</span>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl lg:text-5xl">
+              Your journey, clearly guided from start to takeoff
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Seven simple steps, with expert guidance at every stage of your visa application and travel preparation.
+            </p>
+          </div>
+
+          <ol className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {serviceSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <motion.li
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.3) }}
+                  className={`group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${index === serviceSteps.length - 1 ? "md:col-span-2 lg:col-span-3 lg:mx-auto lg:w-[calc(33.333%-0.85rem)]" : ""}`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ro-blue text-white shadow-md shadow-ro-blue/15">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <span className="font-display text-4xl font-extrabold text-ro-blue/10 transition-colors group-hover:text-ro-yellow">{String(index + 1).padStart(2, "0")}</span>
+                  </div>
+                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.16em] text-ro-red">Step {index + 1}</p>
+                  <h3 className="mt-2 font-display text-xl font-bold leading-snug text-ro-blue">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.description}</p>
+                  <div className="absolute inset-x-6 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
+                </motion.li>
+              );
+            })}
+          </ol>
+        </div>
+      </section>
+
       {/* Team introduction */}
       <section className="overflow-hidden bg-background py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mb-10 text-center sm:mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">The people behind your journey</span>
+            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl lg:text-5xl">
+              Meet the team supporting you
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
+              Dedicated specialists working together to guide you from your first application to your departure.
+            </p>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
