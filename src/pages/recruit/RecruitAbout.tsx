@@ -133,13 +133,13 @@ export default function RecruitAbout() {
               <h2 id="general-manager-title" className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">
                 Mr. Rasika Prasad
               </h2>
-              <p className="mt-2 font-display text-base font-semibold text-slate-600">General Manager</p>
+              <p className="mt-2 font-display text-base font-semibold text-slate-600">General Manager | Qualified Visa Consultant</p>
               <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
               <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
-                Overseeing Elladria Lanka’s day-to-day operations and helping our teams deliver a smooth, dependable experience for every client.
+                With 17+ years of experience in Travel &amp; Tourism, including 8+ years of professional experience in Europe and 7+ years of senior management experience in Sri Lanka, he brings extensive international and management expertise to Elladria Lanka. Holding a Higher Diploma in Tourism, Hospitality &amp; Events Management and professional qualifications as a Visa Consultant, he specializes in international travel, visa consultancy, client relations, business development, and professional service management.
               </p>
               <p className="mt-5 max-w-xl text-sm leading-7 text-slate-500">
-                His focus on coordination, service quality, and practical support helps keep each client journey clear and well managed from beginning to end.
+                He leads Elladria Lanka with a strong commitment to professionalism, transparency, client satisfaction, and responsible international opportunities.
               </p>
             </div>
           </div>
