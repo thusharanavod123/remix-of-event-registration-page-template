@@ -1,6 +1,8 @@
 import { Award, BadgeCheck, Compass, Handshake, Medal, ShieldCheck, Trophy } from "lucide-react";
 import TeamSection from "@/components/recruit/TeamSection";
 import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
+import malindSriyaratna from "@/assets/team/malind-sriyaratna.jpeg";
+import rasikaPrasad from "@/assets/team/rasika-prasad.jpeg";
 
 const values = [
   {
@@ -90,6 +92,68 @@ export default function RecruitAbout() {
           </div>
         </div>
       </div>
+
+      <section className="mt-20 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-sm" aria-labelledby="founder-title">
+        <div className="grid items-stretch lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="relative min-h-[420px] overflow-hidden bg-slate-200 sm:min-h-[520px] lg:min-h-0">
+            <img
+              src={malindSriyaratna}
+              alt="Mr. Malind Sriyaratna, Founder and CEO of Elladria Lanka"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ro-blue/45 via-transparent to-transparent" aria-hidden="true" />
+          </div>
+          <div className="relative flex flex-col justify-center overflow-hidden px-7 py-12 sm:px-12 lg:px-16 lg:py-16">
+            <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-ro-yellow/15 blur-3xl" aria-hidden="true" />
+            <div className="relative">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Leadership</span>
+              <h2 id="founder-title" className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">
+                Mr. Malind Sriyaratna
+              </h2>
+              <p className="mt-2 font-display text-base font-semibold text-slate-600">Founder &amp; CEO</p>
+              <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
+              <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
+                Leading Elladria Lanka with a commitment to clear guidance, trusted service, and meaningful international opportunities for every client we support.
+              </p>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-500">
+                His leadership keeps our team focused on making every stage—from the first consultation to travel and departure—professional, transparent, and manageable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mt-8 overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm" aria-labelledby="general-manager-title">
+        <div className="grid items-stretch lg:grid-cols-[1.18fr_0.82fr]">
+          <div className="relative flex flex-col justify-center overflow-hidden px-7 py-12 sm:px-12 lg:px-16 lg:py-16">
+            <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-ro-blue/10 blur-3xl" aria-hidden="true" />
+            <div className="relative">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Management</span>
+              <h2 id="general-manager-title" className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">
+                Mr. Rasika Prasad
+              </h2>
+              <p className="mt-2 font-display text-base font-semibold text-slate-600">General Manager</p>
+              <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
+              <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
+                Overseeing Elladria Lanka’s day-to-day operations and helping our teams deliver a smooth, dependable experience for every client.
+              </p>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-500">
+                His focus on coordination, service quality, and practical support helps keep each client journey clear and well managed from beginning to end.
+              </p>
+            </div>
+          </div>
+          <div className="relative min-h-[420px] overflow-hidden bg-slate-200 sm:min-h-[520px] lg:order-last lg:min-h-0">
+            <img
+              src={rasikaPrasad}
+              alt="Mr. Rasika Prasad, General Manager of Elladria Lanka"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ro-blue/35 via-transparent to-transparent" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
 
       <div className="mt-16">
         <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">What we stand for</h2>
