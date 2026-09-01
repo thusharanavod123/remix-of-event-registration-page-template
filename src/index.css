@@ -107,6 +107,10 @@
     max-width: 100%;
   }
 
+  html {
+    font-size: 17px;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;

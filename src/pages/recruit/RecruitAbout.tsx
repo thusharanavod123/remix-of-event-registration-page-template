@@ -114,10 +114,13 @@ export default function RecruitAbout() {
               <p className="mt-2 font-display text-base font-semibold text-slate-600">Founder &amp; CEO</p>
               <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
               <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
-                Leading Elladria Lanka with a commitment to clear guidance, trusted service, and meaningful international opportunities for every client we support.
+                With over 14 years of professional experience in the Travel &amp; Tourism industry, including more than 3 years of professional experience in Romania and over 11 years of senior-level management experience in Sri Lanka, he brings a strong combination of international exposure, industry knowledge, leadership, and strategic management expertise to Elladria Lanka.
               </p>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-500">
-                His leadership keeps our team focused on making every stage—from the first consultation to travel and departure—professional, transparent, and manageable.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                He is a Qualified Visa Consultant with extensive practical experience in international travel, visa consultancy, migration-related services, client relationship management, business development, and professional service management. His experience working in Europe has provided him with valuable international insight into travel, tourism, employment, and cross-cultural business environments.
+              </p>
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                At Elladria Lanka, he provides strategic direction and oversees the company&apos;s overall operations, with a strong focus on maintaining professional standards, ethical service, client satisfaction, and reliable international business partnerships.
               </p>
             </div>
           </div>
