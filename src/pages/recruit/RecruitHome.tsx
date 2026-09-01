@@ -5,12 +5,9 @@ import {
   CalendarCheck2,
   ClipboardCheck,
   FileSearch,
-  Factory,
   MessagesSquare,
   Plane,
   Route,
-  Truck,
-  Warehouse,
 } from "lucide-react";
 import { FaqSection } from "@/components/recruit/FaqSection";
 import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
@@ -29,22 +26,22 @@ const heroSlides = [
 
 const roles = [
   {
-    icon: Truck,
+    image: logisticsHero,
+    imageAlt: "Truck driver working with a European logistics company",
     title: "Truck Drivers",
     desc: "International routes across the EU with competitive monthly salaries and accommodation support.",
-    accent: "bg-ro-blue",
   },
   {
-    icon: Factory,
+    image: airportHero,
+    imageAlt: "Sri Lankan professional beginning an international career journey",
     title: "Factory Workers",
     desc: "Production and assembly line positions with full training provided — no experience needed.",
-    accent: "bg-ro-yellow",
   },
   {
-    icon: Warehouse,
+    image: warehouseHero,
+    imageAlt: "International team working in a modern warehouse",
     title: "Warehouse Workers",
     desc: "Sorting, packing, and logistics roles in modern distribution centers across Romania.",
-    accent: "bg-ro-red",
   },
 ];
 
@@ -165,25 +162,25 @@ export default function RecruitHome() {
               Opportunities available now
             </h2>
           </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
             {roles.map((r) => (
               <div
                 key={r.title}
-                className="group rounded-2xl border border-border bg-background p-6 transition-shadow hover:shadow-md"
+                className="group overflow-hidden rounded-xl border border-border bg-background transition-shadow hover:shadow-md sm:rounded-2xl"
               >
-                <span
-                  className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${r.accent} text-primary-foreground`}
-                >
-                  <r.icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-4 font-display text-xl font-semibold">{r.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{r.desc}</p>
-                <Link
-                  to="/vacancies"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary"
-                >
-                  See details <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Link>
+                <div className="h-20 overflow-hidden bg-slate-100 sm:h-28 lg:h-32">
+                  <img src={r.image} alt={r.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="p-3 sm:p-5">
+                  <h3 className="font-display text-sm font-semibold text-ro-blue sm:text-lg lg:text-xl">{r.title}</h3>
+                  <p className="mt-2 hidden text-sm leading-6 text-muted-foreground sm:block">{r.desc}</p>
+                  <Link
+                    to="/vacancies"
+                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary sm:mt-4 sm:text-sm"
+                  >
+                    See details <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
