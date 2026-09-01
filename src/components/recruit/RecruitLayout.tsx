@@ -1,9 +1,10 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
-import { ArrowUpRight, Globe, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
+import { ArrowUpRight, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
 import { FaFacebookF, FaLinkedinIn, FaTiktok } from "react-icons/fa";
+import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -33,21 +34,18 @@ export function RecruitLayout() {
       <motion.header
         initial={false}
         animate={{
-          backgroundColor: scrolled ? "hsl(var(--background) / 0.88)" : "hsl(var(--background) / 0.96)",
-          borderColor: scrolled ? "hsl(var(--border) / 0.85)" : "hsl(var(--border))",
-          boxShadow: scrolled ? "0 12px 35px hsl(240 30% 14% / 0.09)" : "0 0 0 hsl(240 30% 14% / 0)",
+          backgroundColor: scrolled ? "hsl(222 55% 14% / 0.94)" : "hsl(222 55% 14% / 0.98)",
+          borderColor: scrolled ? "hsl(0 0% 100% / 0.16)" : "hsl(0 0% 100% / 0.1)",
+          boxShadow: scrolled ? "0 12px 35px hsl(222 55% 8% / 0.24)" : "0 0 0 hsl(222 55% 8% / 0)",
         }}
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl"
       >
         <motion.div initial={false} animate={{ height: scrolled ? 56 : 64 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
           <motion.div initial={false} animate={{ scale: scrolled ? 0.95 : 1 }} transition={{ duration: 0.28 }}>
-          <Link to="/" className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
-              <Globe className="h-4 w-4" />
-            </span>
-            <span className="font-display text-lg font-bold tracking-tight">
-              EuroBridge<span className="text-primary"> Careers</span>
+          <Link to="/" className="block" aria-label="Elladria Lanka home">
+            <span className="block h-10 w-32 sm:h-11 sm:w-36">
+              <img src={companyLogo} alt="Elladria Lanka" className="h-full w-full object-contain" />
             </span>
           </Link>
           </motion.div>
@@ -61,8 +59,8 @@ export function RecruitLayout() {
                 className={({ isActive }) =>
                   `rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                     isActive
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                      ? "bg-ro-yellow text-ro-blue"
+                      : "text-white/75 hover:bg-white/10 hover:text-white"
                   }`
                 }
               >
@@ -78,7 +76,7 @@ export function RecruitLayout() {
           </nav>
 
           <button
-            className="md:hidden"
+            className="text-white md:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
@@ -87,7 +85,7 @@ export function RecruitLayout() {
         </motion.div>
 
         {open && (
-          <nav className="border-t border-border px-4 py-3 md:hidden">
+          <nav className="border-t border-white/10 bg-[hsl(222_55%_14%)] px-4 py-3 md:hidden">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
@@ -96,7 +94,7 @@ export function RecruitLayout() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `block rounded-lg px-4 py-2.5 text-sm font-medium ${
-                    isActive ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+                    isActive ? "bg-ro-yellow text-ro-blue" : "text-white/75 hover:bg-white/10 hover:text-white"
                   }`
                 }
               >
@@ -112,7 +110,7 @@ export function RecruitLayout() {
             </a>
           </nav>
         )}
-        <motion.div initial={false} animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }} transition={{ duration: 0.4 }} className="absolute inset-x-0 bottom-0 h-px origin-center bg-gradient-to-r from-transparent via-primary/45 to-transparent" aria-hidden="true" />
+        <motion.div initial={false} animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }} transition={{ duration: 0.4 }} className="absolute inset-x-0 bottom-0 h-px origin-center bg-gradient-to-r from-transparent via-ro-yellow/55 to-transparent" aria-hidden="true" />
       </motion.header>
 
       <div className="h-16 shrink-0" aria-hidden="true" />
@@ -129,9 +127,10 @@ export function RecruitLayout() {
         <div className="relative mx-auto max-w-6xl px-4 pb-8 pt-16 sm:px-6 lg:pt-20">
           <div className="grid gap-12 border-b border-white/10 pb-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.65fr_0.8fr_0.8fr]">
             <div>
-              <Link to="/" className="inline-flex items-center gap-3" aria-label="EuroBridge Careers home">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-ro-blue shadow-lg shadow-black/15"><Globe className="h-5 w-5" /></span>
-                <span className="font-display text-xl font-bold tracking-tight">EuroBridge<span className="text-ro-yellow"> Careers</span></span>
+              <Link to="/" className="inline-block" aria-label="Elladria Lanka home">
+                <span className="block h-20 w-60 sm:w-64">
+                  <img src={companyLogo} alt="Elladria Lanka" className="h-full w-full object-contain" />
+                </span>
               </Link>
               <p className="mt-5 max-w-md text-sm leading-6 text-white/65">Helping Sri Lankan job seekers access trusted European employment with clear guidance from application to arrival.</p>
               <div className="mt-6 flex flex-wrap gap-3">
