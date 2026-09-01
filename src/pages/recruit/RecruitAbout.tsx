@@ -1,34 +1,58 @@
-import { Award, BadgeCheck, Compass, Handshake, Medal, ShieldCheck, Trophy } from "lucide-react";
+import { BadgeCheck, Eye, Globe2, Handshake, Medal, ShieldCheck, Target, UserRoundCheck } from "lucide-react";
 import TeamSection from "@/components/recruit/TeamSection";
-import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import journeyToSuccess from "@/assets/journey-to-success.jpg";
 import malindSriyaratna from "@/assets/team/malind-sriyaratna.jpeg";
 import rasikaPrasad from "@/assets/team/rasika-prasad.jpeg";
+import employeePerformanceRecognition from "@/assets/certificates/employee-performance-recognition.jpg";
+import licenceAwarenessProgramme from "@/assets/certificates/new-licence-awareness-programme.jpg";
 
 const values = [
   {
-    icon: Handshake,
-    title: "Trusted partnerships",
-    desc: "We work only with vetted European employers, so every offer we present is real, legal, and fairly paid.",
+    icon: BadgeCheck,
+    title: "Professional Approach",
+    desc: "We maintain a structured and professional recruitment process focused on quality and reliability.",
     accent: "text-ro-blue",
   },
   {
     icon: ShieldCheck,
-    title: "Full transparency",
-    desc: "No hidden fees, no false promises. You know the salary, conditions, and process before you commit.",
+    title: "Ethical & Transparent",
+    desc: "We believe in honest communication, clear processes, and responsible recruitment practices.",
     accent: "text-ro-red",
   },
   {
-    icon: Compass,
-    title: "End-to-end guidance",
-    desc: "From documents and visas to travel and settling in, our team supports you at every step of the journey.",
+    icon: Globe2,
+    title: "International Focus",
+    desc: "We connect Sri Lankan talent with employment opportunities and employers across international markets.",
     accent: "text-ro-yellow",
+  },
+  {
+    icon: UserRoundCheck,
+    title: "Candidate-Centred Service",
+    desc: "We guide candidates through the recruitment journey and provide support at every appropriate stage.",
+    accent: "text-success",
+  },
+  {
+    icon: Handshake,
+    title: "Trusted Partnerships",
+    desc: "We aim to develop strong, long-term relationships with reputable international employers and business partners.",
+    accent: "text-ro-blue",
   },
 ];
 
 const credentials = [
-  { icon: BadgeCheck, eyebrow: "Credentials", title: "Official registrations", description: "Company registrations, licences, and verified operating credentials.", accent: "from-primary/20 to-primary/5" },
-  { icon: Award, eyebrow: "Standards", title: "Professional certifications", description: "Certificates demonstrating service quality and professional compliance.", accent: "from-ro-yellow/25 to-ro-yellow/5" },
-  { icon: Trophy, eyebrow: "Recognition", title: "Awards & achievements", description: "Industry awards and milestones earned by the EuroBridge team.", accent: "from-success/20 to-success/5" },
+  {
+    image: employeePerformanceRecognition,
+    eyebrow: "Recognition",
+    title: "Employee Performance Certificate",
+    description: "Certificate of Recognition presented to H. M. M. Sriyarathna for dedication and performance in the foreign employment sector.",
+  },
+  {
+    image: licenceAwarenessProgramme,
+    eyebrow: "Professional development",
+    title: "New Licence Awareness Programme",
+    description: "Certificate issued to Elladria Lanka (Pvt) Ltd for participation in the programme conducted by the Sri Lanka Bureau of Foreign Employment.",
+  },
 ];
 
 export default function RecruitAbout() {
@@ -36,62 +60,107 @@ export default function RecruitAbout() {
     <div>
       <header className="relative overflow-hidden border-b border-slate-300 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/50 blur-3xl" aria-hidden="true" />
-        <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-          <div className="flex justify-center">
-            <img src={companyLogo} alt="Elladria Lanka" className="h-16 w-52 object-contain opacity-70 sm:h-20 sm:w-64" />
+        <div className="relative mx-auto max-w-[1600px] overflow-hidden border-b border-slate-300 bg-white shadow-sm">
+          <img
+            src={journeyToSuccess}
+            alt="Elladria Lanka journey to success, connecting Romania and Sri Lanka"
+            className="block h-auto w-full"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ro-blue/65 via-ro-blue/25 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full px-4 sm:px-8 lg:px-14">
+              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 sm:text-xs">About us</span>
+              <h1 className="mt-1 max-w-3xl font-display text-xl font-bold tracking-tight text-white/80 drop-shadow-md sm:mt-3 sm:text-4xl lg:text-5xl">
+                Bridging Sri Lankan talent with European opportunity
+              </h1>
+              <p className="mt-2 max-w-2xl text-[11px] leading-4 text-white/65 drop-shadow sm:mt-5 sm:text-base sm:leading-7">
+                Safe, transparent, and professional guidance for every stage of your international career journey.
+              </p>
+            </div>
           </div>
-          <span className="mt-8 block text-xs font-bold uppercase tracking-[0.2em] text-ro-red">About us</span>
-          <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl lg:text-5xl">
-            Bridging Sri Lankan talent with European opportunity
-          </h1>
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-            Safe, transparent, and professional guidance for every stage of your international career journey.
-          </p>
         </div>
       </header>
 
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-2">
-        <div className="space-y-5 text-muted-foreground">
-          <p>
-            EuroBridge Careers is a travel and recruitment agency dedicated to one mission: helping
-            Sri Lankan job seekers build better futures through legitimate, well-paid work in Europe.
+      <section className="mt-10" aria-labelledby="about-elladria-title">
+        <div className="max-w-4xl">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Who we are</span>
+          <h2 id="about-elladria-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">
+            About Elladria Lanka
+          </h2>
+          <p className="mt-3 font-display text-xl font-semibold text-slate-600 sm:text-2xl">
+            Connecting Sri Lankan Talent with Global Opportunities
           </p>
-          <p>
-            We currently place candidates across Romania in three high-demand sectors — truck
-            driving, factory work, and warehouse operations — partnering directly with employers who
-            value reliability and hard work.
-          </p>
-          <p>
-            Starting next month, we're expanding into neighboring European countries, opening even
-            more doors for the people we serve. Our team handles the complexity so you can focus on
-            the opportunity.
-          </p>
+          <div className="mt-7 space-y-5 leading-8 text-muted-foreground">
+            <p>
+              Elladria Lanka (Private) Limited is a Sri Lankan international recruitment and foreign employment services company dedicated to connecting talented and hardworking Sri Lankans with reputable employers and career opportunities around the world.
+            </p>
+            <p>
+              Established on <strong className="font-semibold text-ro-blue">01 March 2024</strong>, Elladria Lanka has developed its operations with a strong focus on professionalism, reliability, transparency, and client satisfaction. Our commitment is to create meaningful connections between qualified Sri Lankan candidates and international employers while providing professional guidance throughout the recruitment journey.
+            </p>
+          </div>
         </div>
 
-        <div className="rounded-2xl border border-border bg-card p-8">
-          <h2 className="font-display text-xl font-semibold">Our mission</h2>
-          <p className="mt-3 text-sm text-muted-foreground">
-            To make overseas employment safe, transparent, and accessible for every Sri Lankan
-            worker — connecting ambition with opportunity, one placement at a time.
-          </p>
-          <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6 text-center">
+        <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-ro-blue/15 bg-gradient-to-br from-slate-50 via-white to-blue-50 p-8 shadow-sm sm:p-10">
+          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-ro-blue/10 blur-3xl" aria-hidden="true" />
+          <div className="relative grid gap-6 md:grid-cols-[auto_1fr] md:items-start">
+            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-ro-blue text-white shadow-lg">
+              <ShieldCheck className="h-8 w-8" aria-hidden="true" />
+            </span>
             <div>
-              <p className="font-display text-2xl font-bold text-ro-blue">3</p>
-              <p className="mt-1 text-xs text-muted-foreground">Job sectors</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-bold text-ro-red">100%</p>
-              <p className="mt-1 text-xs text-muted-foreground">Vetted employers</p>
-            </div>
-            <div>
-              <p className="font-display text-2xl font-bold text-ro-yellow">4+</p>
-              <p className="mt-1 text-xs text-muted-foreground">Countries soon</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Licensed &amp; regulated</p>
+              <h3 className="mt-2 font-display text-2xl font-bold text-ro-blue sm:text-3xl">SLBFE Registered Foreign Employment Agency</h3>
+              <div className="mt-5 space-y-5 leading-8 text-muted-foreground">
+                <p>
+                  Elladria Lanka is registered and licensed with the Sri Lanka Bureau of Foreign Employment (SLBFE) to conduct foreign employment agency activities. Our SLBFE registration became effective on <strong className="font-semibold text-ro-blue">01 June 2025</strong>, reflecting our commitment to operating within the required regulatory framework for Sri Lankan foreign employment services.
+                </p>
+                <p>
+                  Our approach is built around ethical recruitment, transparency, compliance, and professional service. We work to ensure that candidates receive clear information and appropriate support while international employers gain access to reliable Sri Lankan talent.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="mt-14" aria-labelledby="vision-mission-title">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Our direction</span>
+          <h2 id="vision-mission-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">
+            Building careers. Creating futures.
+          </h2>
+        </div>
+        <div className="mt-9 grid gap-6 lg:grid-cols-2">
+          <article className="relative overflow-hidden rounded-[2rem] border border-ro-blue/15 bg-gradient-to-br from-ro-blue to-ro-blue/90 p-8 text-white shadow-lg sm:p-10">
+            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10 blur-2xl" aria-hidden="true" />
+            <div className="relative">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 shadow-inner backdrop-blur-sm">
+                <Eye className="h-7 w-7 text-ro-yellow" aria-hidden="true" />
+              </span>
+              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-ro-yellow">Where we are going</p>
+              <h3 className="mt-2 font-display text-3xl font-bold">Our Vision</h3>
+              <p className="mt-5 leading-8 text-white/85">
+                To become a trusted global leader in international recruitment, connecting Sri Lankan talent with world-class career opportunities and creating a better future for individuals, businesses, and communities.
+              </p>
+            </div>
+          </article>
+
+          <article className="relative overflow-hidden rounded-[2rem] border border-ro-yellow/30 bg-gradient-to-br from-white via-amber-50/60 to-ro-yellow/10 p-8 shadow-lg sm:p-10">
+            <div className="pointer-events-none absolute -bottom-20 -right-20 h-56 w-56 rounded-full bg-ro-yellow/20 blur-3xl" aria-hidden="true" />
+            <div className="relative">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ro-yellow/20 shadow-inner">
+                <Target className="h-7 w-7 text-ro-red" aria-hidden="true" />
+              </span>
+              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-ro-red">How we get there</p>
+              <h3 className="mt-2 font-display text-3xl font-bold text-ro-blue">Our Mission</h3>
+              <p className="mt-5 leading-8 text-slate-600">
+                To deliver ethical, professional, and reliable international recruitment solutions by connecting skilled and dedicated Sri Lankan talent with reputable employers worldwide. We are committed to transparency, compliance, personalized service, and long-term partnerships while supporting every candidate throughout their journey toward a successful career abroad.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section className="mt-20 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-50 shadow-sm" aria-labelledby="founder-title">
         <div className="grid items-stretch lg:grid-cols-[0.82fr_1.18fr]">
@@ -158,60 +227,92 @@ export default function RecruitAbout() {
         </div>
       </section>
 
-      <div className="mt-16">
-        <h2 className="text-center font-display text-2xl font-bold sm:text-3xl">What we stand for</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-border bg-card p-6">
-              <v.icon className={`h-8 w-8 ${v.accent}`} />
-              <h3 className="mt-4 font-display text-lg font-semibold">{v.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{v.desc}</p>
-            </div>
-          ))}
+      <section className="mt-20" aria-labelledby="why-choose-title">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">The Elladria difference</span>
+          <h2 id="why-choose-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">Why Choose Elladria Lanka?</h2>
+          <p className="mt-4 leading-7 text-muted-foreground">Professional recruitment built around trust, responsibility, and lasting international connections.</p>
         </div>
-      </div>
+        <Accordion type="single" collapsible className="mx-auto mt-8 max-w-3xl border-t border-slate-200">
+          {values.map((v, index) => (
+            <AccordionItem key={v.title} value={`reason-${index + 1}`} className="border-slate-200">
+              <AccordionTrigger className="gap-4 py-5 text-left hover:no-underline">
+                <span className="flex min-w-0 items-center gap-4">
+                  <v.icon className={`h-5 w-5 shrink-0 ${v.accent}`} aria-hidden="true" />
+                  <span className="font-display text-lg font-bold text-ro-blue">{v.title}</span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="pl-9 pr-8 text-base leading-7 text-muted-foreground">
+                {v.desc}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
 
 <TeamSection />
 
+      <section className="mt-20 border-y border-slate-200 py-14 sm:py-16" aria-labelledby="commitment-title">
+        <div className="mx-auto max-w-4xl">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">What drives us</span>
+          <h2 id="commitment-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">Our Commitment</h2>
+          <div className="mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
+          <div className="mt-8 space-y-6 leading-8 text-muted-foreground">
+            <p>
+              At Elladria Lanka, we believe that successful recruitment is more than simply filling a vacancy. It is about connecting the right person with the right opportunity.
+            </p>
+            <p>
+              We are committed to maintaining professional standards throughout every stage of the recruitment process and building trusted, long-term relationships with candidates, employers, and international partners.
+            </p>
+            <p>
+              Our goal is to help Sri Lankan professionals and workers access legitimate international career opportunities while helping global employers find dependable and capable talent from Sri Lanka.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="mt-20" aria-labelledby="credentials-title">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Trust & recognition</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">Our commitment in action</span>
           <h2 id="credentials-title" className="mt-3 font-display text-3xl font-bold">Certificates and achievements</h2>
-          <p className="mt-3 text-sm leading-6 text-muted-foreground">A dedicated place for the documents and recognition that support our commitment to safe, professional recruitment.</p>
+          <p className="mt-3 leading-7 text-muted-foreground">The credentials, professional standards, and recognition that demonstrate the results of our commitment to safe and reliable international recruitment.</p>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {credentials.map(({ icon: Icon, eyebrow, title, description, accent }, index) => (
+        <div className="mx-auto mt-10 grid max-w-2xl gap-6 sm:grid-cols-2">
+          {credentials.map(({ image, eyebrow, title, description }, index) => (
             <article key={title} className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className={`relative flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${accent}`}>
-                <div className="absolute inset-4 rounded-xl border border-dashed border-foreground/15" />
-                <span className="relative flex h-20 w-20 items-center justify-center rounded-full border border-white/70 bg-white/80 text-ro-blue shadow-lg backdrop-blur transition-transform duration-500 group-hover:scale-105">
-                  <Icon className="h-9 w-9" />
-                </span>
+              <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                <img src={image} alt={title} loading="lazy" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]" />
                 <span className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 font-display text-xs font-extrabold text-ro-blue shadow-sm">0{index + 1}</span>
               </div>
               <div className="p-6">
                 <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
                 <h3 className="mt-2 font-display text-lg font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p>
-                <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-xs font-semibold text-muted-foreground"><Medal className="h-4 w-4 text-ro-yellow" />Document slot ready</div>
+                <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-xs font-semibold text-muted-foreground"><Medal className="h-4 w-4 text-ro-yellow" />Elladria Lanka certificate</div>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <div className="mt-16 rounded-2xl bg-secondary/60 p-8 text-center">
-        <h2 className="font-display text-2xl font-bold">Ready to take the next step?</h2>
-        <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-          Book an office appointment and let's discuss which opportunity fits you best.
-        </p>
-        <a
-          href="#book"
-          className="mt-6 inline-block rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Book an appointment
-        </a>
-      </div>
+      <section className="relative mt-20 overflow-hidden border-y border-slate-200 py-16 text-center sm:py-20" aria-labelledby="purpose-title">
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ro-yellow/10 blur-3xl" aria-hidden="true" />
+        <div className="relative mx-auto max-w-4xl">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Looking forward</span>
+          <h2 id="purpose-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl">Our Purpose</h2>
+          <p className="mx-auto mt-7 max-w-3xl font-display text-xl font-semibold leading-8 text-slate-700 sm:text-2xl">
+            To create opportunities that change lives and partnerships that build stronger businesses.
+          </p>
+          <p className="mx-auto mt-6 max-w-3xl leading-8 text-muted-foreground">
+            At Elladria Lanka, we continue to expand our international network while strengthening our services to become a trusted name in Sri Lankan foreign employment and international recruitment.
+          </p>
+          <div className="mx-auto mt-9 h-1 w-20 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
+          <p className="mt-7 font-display text-lg font-bold text-ro-blue sm:text-xl">
+            Elladria Lanka — Connecting Talent. Creating Opportunities. Building Futures.
+          </p>
+        </div>
+      </section>
+
       </div>
     </div>
   );
