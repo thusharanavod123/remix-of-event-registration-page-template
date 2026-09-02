@@ -1,7 +1,7 @@
 import { BadgeCheck, Eye, Globe2, Handshake, Medal, ShieldCheck, Target, UserRoundCheck } from "lucide-react";
-import TeamSection from "@/components/recruit/TeamSection";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import journeyToSuccess from "@/assets/journey-to-success.jpg";
+import aboutUsHeader from "@/assets/about-us-header.png";
+import slbfeLogo from "@/assets/slbfe-logo.webp";
 import malindSriyaratna from "@/assets/team/malind-sriyaratna.jpeg";
 import rasikaPrasad from "@/assets/team/rasika-prasad.jpeg";
 import employeePerformanceRecognition from "@/assets/certificates/employee-performance-recognition.jpg";
@@ -62,8 +62,8 @@ export default function RecruitAbout() {
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/50 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-[1600px] overflow-hidden border-b border-slate-300 bg-white shadow-sm">
           <img
-            src={journeyToSuccess}
-            alt="Elladria Lanka journey to success, connecting Romania and Sri Lanka"
+            src={aboutUsHeader}
+            alt="Elladria Lanka connecting Sri Lanka and Romania"
             className="block h-auto w-full"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ro-blue/65 via-ro-blue/25 to-transparent" aria-hidden="true" />
@@ -105,9 +105,13 @@ export default function RecruitAbout() {
         <div className="relative mt-10 overflow-hidden rounded-[2rem] border border-ro-blue/15 bg-gradient-to-br from-slate-50 via-white to-blue-50 p-8 shadow-sm sm:p-10">
           <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-ro-blue/10 blur-3xl" aria-hidden="true" />
           <div className="relative grid gap-6 md:grid-cols-[auto_1fr] md:items-start">
-            <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-ro-blue text-white shadow-lg">
-              <ShieldCheck className="h-8 w-8" aria-hidden="true" />
-            </span>
+            <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-lg sm:h-28 sm:w-28">
+              <img
+                src={slbfeLogo}
+                alt="Sri Lanka Bureau of Foreign Employment logo"
+                className="h-full w-full object-contain"
+              />
+            </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">Licensed &amp; regulated</p>
               <h3 className="mt-2 font-display text-2xl font-bold text-ro-blue sm:text-3xl">SLBFE Registered Foreign Employment Agency</h3>
@@ -250,7 +254,7 @@ export default function RecruitAbout() {
         </Accordion>
       </section>
 
-<TeamSection />
+{/* Meet the Team section is temporarily hidden. */}
 
       <section className="mt-20 border-y border-slate-200 py-14 sm:py-16" aria-labelledby="commitment-title">
         <div className="mx-auto max-w-4xl">
