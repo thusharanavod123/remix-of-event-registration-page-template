@@ -14,8 +14,8 @@ const navItems = [
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/", icon: FaLinkedinIn },
-  { label: "TikTok", href: "https://www.tiktok.com/", icon: FaTiktok },
-  { label: "Facebook", href: "https://www.facebook.com/", icon: FaFacebookF },
+  { label: "TikTok", href: "https://www.tiktok.com/@elladria.lanka.of", icon: FaTiktok },
+  { label: "Facebook", href: "https://web.facebook.com/Elladrialanka/", icon: FaFacebookF },
 ];
 
 export function RecruitLayout() {
