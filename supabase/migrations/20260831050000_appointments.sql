@@ -1,4 +1,4 @@
--- Appointment scheduling for EuroBridge Careers.
+-- Appointment scheduling for Elladria Lanka Careers.
 -- Public visitors use the two RPCs below; only admins can read or manage records.
 
 CREATE TABLE public.availability_rules (

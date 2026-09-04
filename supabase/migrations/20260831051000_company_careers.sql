@@ -1,4 +1,4 @@
--- Careers at EuroBridge: roles for people joining the EuroBridge team.
+-- Careers at Elladria Lanka: roles for people joining the Elladria Lanka team.
 CREATE TABLE public.company_careers (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   title text NOT NULL CHECK (char_length(title) BETWEEN 2 AND 120),
@@ -27,4 +27,3 @@ GRANT SELECT ON public.company_careers TO anon;
 GRANT SELECT, INSERT, UPDATE, DELETE ON public.company_careers TO authenticated;
 CREATE TRIGGER update_company_careers_updated_at BEFORE UPDATE ON public.company_careers
   FOR EACH ROW EXECUTE FUNCTION public.update_updated_at_column();
-

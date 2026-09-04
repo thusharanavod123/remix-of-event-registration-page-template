@@ -11,7 +11,7 @@ Deno.serve(async (request) => {
   const key = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
   const resendKey = Deno.env.get("RESEND_API_KEY");
   const adminEmail = Deno.env.get("ADMIN_NOTIFICATION_EMAIL");
-  const from = Deno.env.get("APPOINTMENT_FROM_EMAIL") || "EuroBridge Careers <appointments@example.com>";
+  const from = Deno.env.get("APPOINTMENT_FROM_EMAIL") || "Elladria Lanka Careers <appointments@example.com>";
   if (!url || !key) return json({ error: "Server is not configured" }, 500);
 
   let appointmentId = "";
