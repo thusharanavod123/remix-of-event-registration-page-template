@@ -131,7 +131,7 @@ export default function TeamSection() {
             <div className="p-4">
               <img
                 src={member.img}
-                alt={`${member.name}, ${member.role} at EuroBridge Careers`}
+                alt={`${member.name}, ${member.role} at Elladria Lanka Careers`}
                 width={768}
                 height={768}
                 loading="lazy"

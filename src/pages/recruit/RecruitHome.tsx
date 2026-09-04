@@ -271,7 +271,7 @@ export default function RecruitHome() {
           >
             <div>
               <div className="relative aspect-[3/2] overflow-hidden bg-slate-200">
-                <img src={teamGroup} alt="The complete EuroBridge Careers team" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-[1.015]" />
+                <img src={teamGroup} alt="The complete Elladria Lanka Careers team" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-[1.015]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ro-blue/35 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-ro-blue shadow-xl backdrop-blur sm:bottom-7 sm:left-7">
                   <span className="font-display text-2xl font-extrabold">7</span>

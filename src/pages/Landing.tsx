@@ -875,7 +875,7 @@ const Landing = () => {
             <span className="h-3 w-2 rounded-sm bg-ro-yellow" />
             <span className="h-3 w-2 rounded-sm bg-ro-red" />
           </div>
-          <p className="text-sm text-muted-foreground">© 2026 EuroBridge Careers. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">© 2026 Elladria Lanka Careers. All rights reserved.</p>
         </div>
       </footer>
 

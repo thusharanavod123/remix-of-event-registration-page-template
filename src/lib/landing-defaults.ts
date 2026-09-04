@@ -62,7 +62,7 @@ export const LANDING_DEFAULTS = {
     eyebrow: "Built for job seekers",
     title_line_1: "Everything you need to",
     title_line_2: "work in Europe.",
-    subhead: "From your first consultation to your first paycheck, EuroBridge Careers has you covered.",
+    subhead: "From your first consultation to your first paycheck, Elladria Lanka Careers has you covered.",
     items: [
       { tag: "Guidance", title: "End-to-end support", description: "Documents, visas, travel, and settling in — our team walks with you at every step." },
       { tag: "Trust", title: "Vetted employers only", description: "Every offer is real, legal, and fairly paid. We partner directly with European companies." },
@@ -73,11 +73,11 @@ export const LANDING_DEFAULTS = {
   testimonials: {
     title: "Loved by our candidates",
     items: [
-      { quote: "EuroBridge got me a truck driving job in Bucharest in six weeks. They handled everything — I just showed up.", name: "Nuwan Perera", role: "Truck driver, Bucharest" },
+      { quote: "Elladria Lanka got me a truck driving job in Bucharest in six weeks. They handled everything — I just showed up.", name: "Nuwan Perera", role: "Truck driver, Bucharest" },
       { quote: "The team explained every step in Sinhala. I never felt lost in the process.", name: "Kasun Fernando", role: "Warehouse worker, Timișoara" },
       { quote: "Honest people. The salary and conditions they promised are exactly what I got.", name: "Dilani Silva", role: "Factory worker, Cluj-Napoca" },
       { quote: "From Colombo to Constanța, they supported me through documents, visa, and travel.", name: "Ravi Kumar", role: "Truck driver, Constanța" },
-      { quote: "My whole family thanks EuroBridge. This opportunity changed our lives.", name: "Amara Jayasinghe", role: "Factory worker, Iași" },
+      { quote: "My whole family thanks Elladria Lanka. This opportunity changed our lives.", name: "Amara Jayasinghe", role: "Factory worker, Iași" },
     ],
   } as TestimonialsContent,
   cta: {

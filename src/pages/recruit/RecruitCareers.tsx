@@ -6,7 +6,7 @@ export default function RecruitCareers() {
   return <div>
     <section className="border-b bg-card">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ro-red">Careers at EuroBridge</span>
+        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ro-red">Careers at Elladria Lanka</span>
         <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold leading-tight sm:text-5xl">Do meaningful work that opens doors across borders.</h1>
         <p className="mt-5 max-w-2xl text-lg text-muted-foreground">Join the team helping Sri Lankan professionals build safer, stronger careers in Europe.</p>
       </div>

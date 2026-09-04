@@ -137,9 +137,9 @@ export function RecruitLayout() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><ShieldCheck className="h-4 w-4 text-ro-yellow" /> Vetted employers</span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><HeartHandshake className="h-4 w-4 text-ro-yellow" /> End-to-end support</span>
               </div>
-              <div className="mt-7 flex items-center gap-2" aria-label="EuroBridge Careers social media">
+              <div className="mt-7 flex items-center gap-2" aria-label="Elladria Lanka Careers social media">
                 {socialLinks.map(({ label, href, icon: Icon }) => (
-                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Follow EuroBridge Careers on ${label}`} title={label} className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-ro-yellow hover:bg-ro-yellow hover:text-ro-blue hover:shadow-lg hover:shadow-ro-yellow/15">
+                  <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Follow Elladria Lanka Careers on ${label}`} title={label} className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-ro-yellow hover:bg-ro-yellow hover:text-ro-blue hover:shadow-lg hover:shadow-ro-yellow/15">
                     <Icon className="h-4 w-4" />
                   </a>
                 ))}
@@ -160,11 +160,11 @@ export function RecruitLayout() {
             <div>
               <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Careers</h2>
               <p className="mt-5 text-sm leading-6 text-white/65">Want to help people build careers across borders? Explore opportunities within our team.</p>
-              <Link to="/careers" className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-ro-yellow">Join EuroBridge <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></Link>
+              <Link to="/careers" className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-ro-yellow">Join Elladria Lanka <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></Link>
             </div>
           </div>
           <div className="flex flex-col gap-5 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} EuroBridge Careers. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Elladria Lanka Careers. All rights reserved.</p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
           </div>
         </div>
