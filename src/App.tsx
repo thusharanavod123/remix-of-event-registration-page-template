@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { RecruitLayout } from "@/components/recruit/RecruitLayout";
 import { AdminOnly } from "@/components/recruit/AdminOnly";
 import RecruitHome from "@/pages/recruit/RecruitHome";
@@ -26,6 +27,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <ScrollToTop />
             <Routes>
               <Route path="/auth" element={<Auth />} />
               <Route path="/reset-password" element={<ResetPassword />} />
