@@ -11,7 +11,12 @@ export function SmoothScroll() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Native scrolling is more responsive and reliable on phones/tablets. Lenis
+    // is only useful for smoothing mouse-wheel input on pointer-accurate devices.
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(pointer: coarse)").matches
+    ) return;
 
     const lenis = new Lenis({
       duration: 1.15,

@@ -39,7 +39,7 @@ export function FaqSection() {
   const faqs = data?.length ? data.map((faq) => ({ q: faq.question, a: faq.answer })) : FAQS;
 
   return (
-    <section id="faq" className="py-20 lg:py-28">
+    <section id="faq" className="touch-pan-y py-16 sm:py-20 lg:py-28">
       <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-12"
@@ -55,8 +55,8 @@ export function FaqSection() {
             Answers before you ask
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mt-4">
-            Everything candidates usually want to know about working in Romania. Hover or tap a
-            question to reveal the answer.
+            Everything candidates usually want to know about working in Romania. Tap a question to
+            reveal the answer.
           </p>
         </motion.div>
 
@@ -72,16 +72,19 @@ export function FaqSection() {
                 transition={{ duration: 0.45, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div
-                  className={`group cursor-pointer rounded-2xl border transition-all duration-300 ${
+                  className={`group rounded-2xl border transition-all duration-300 ${
                     isOpen
                       ? "border-primary bg-primary/5 shadow-lg shadow-primary/10"
                       : "border-border bg-card hover:border-primary/50 hover:shadow-md"
                   }`}
-                  onMouseEnter={() => setOpenIndex(i)}
-                  onMouseLeave={() => setOpenIndex((cur) => (cur === i ? null : cur))}
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
                 >
-                  <div className="flex items-center justify-between gap-4 px-6 py-5">
+                  <button
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
+                    onClick={() => setOpenIndex((current) => (current === i ? null : i))}
+                    className="flex w-full touch-manipulation items-center justify-between gap-4 px-5 py-5 text-left sm:px-6"
+                  >
                     <h3 className="font-display font-semibold text-base sm:text-lg text-foreground">
                       {faq.q}
                     </h3>
@@ -94,14 +97,15 @@ export function FaqSection() {
                     >
                       +
                     </motion.span>
-                  </div>
+                  </button>
                   <motion.div
+                    id={`faq-answer-${i}`}
                     initial={false}
                     animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
                     transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:px-6">
                       {faq.a}
                     </p>
                   </motion.div>
