@@ -1,6 +1,7 @@
 import { BadgeCheck, Eye, Globe2, Handshake, Medal, ShieldCheck, Target, UserRoundCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import aboutUsHeader from "@/assets/about-us-header.png";
+import aboutUsHeader from "@/assets/about-us-header.jpg";
+import aboutUsHeaderMobile from "@/assets/about-us-header-mobile.jpg";
 import slbfeLogo from "@/assets/slbfe-logo.webp";
 import malindSriyaratna from "@/assets/team/malind-sriyaratna.jpeg";
 import rasikaPrasad from "@/assets/team/rasika-prasad.jpeg";
@@ -63,7 +64,13 @@ export default function RecruitAbout() {
         <div className="relative mx-auto max-w-[1600px] overflow-hidden border-b border-slate-300 bg-white shadow-sm">
           <img
             src={aboutUsHeader}
+            srcSet={`${aboutUsHeaderMobile} 800w, ${aboutUsHeader} 1303w`}
+            sizes="100vw"
             alt="Elladria Lanka connecting Sri Lanka and Romania"
+            width={1303}
+            height={716}
+            decoding="async"
+            fetchPriority="high"
             className="block h-auto w-full"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-ro-blue/65 via-ro-blue/25 to-transparent" aria-hidden="true" />

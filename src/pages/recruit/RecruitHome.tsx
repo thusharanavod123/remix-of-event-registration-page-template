@@ -13,32 +13,38 @@ import { FaqSection } from "@/components/recruit/FaqSection";
 import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import airportHero from "@/assets/hero/career-airport.png";
-import logisticsHero from "@/assets/hero/career-logistics.png";
-import warehouseHero from "@/assets/hero/career-warehouse.png";
+import airportHero from "@/assets/hero/career-airport.jpg";
+import airportHeroMobile from "@/assets/hero/career-airport-mobile.jpg";
+import logisticsHero from "@/assets/hero/career-logistics.jpg";
+import logisticsHeroMobile from "@/assets/hero/career-logistics-mobile.jpg";
+import warehouseHero from "@/assets/hero/career-warehouse.jpg";
+import warehouseHeroMobile from "@/assets/hero/career-warehouse-mobile.jpg";
 import teamGroup from "@/assets/team/team-group.jpg";
 
 const heroSlides = [
-  { image: airportHero, alt: "Sri Lankan professional beginning her journey to a European career" },
-  { image: logisticsHero, alt: "Sri Lankan logistics professional working with a modern European transport company" },
-  { image: warehouseHero, alt: "International logistics team collaborating in a modern European warehouse" },
+  { image: airportHero, mobileImage: airportHeroMobile, alt: "Sri Lankan professional beginning her journey to a European career" },
+  { image: logisticsHero, mobileImage: logisticsHeroMobile, alt: "Sri Lankan logistics professional working with a modern European transport company" },
+  { image: warehouseHero, mobileImage: warehouseHeroMobile, alt: "International logistics team collaborating in a modern European warehouse" },
 ];
 
 const roles = [
   {
     image: logisticsHero,
+    mobileImage: logisticsHeroMobile,
     imageAlt: "Truck driver working with a European logistics company",
     title: "Truck Drivers",
     desc: "International routes across the EU with competitive monthly salaries and accommodation support.",
   },
   {
     image: airportHero,
+    mobileImage: airportHeroMobile,
     imageAlt: "Sri Lankan professional beginning an international career journey",
     title: "Factory Workers",
     desc: "Production and assembly line positions with full training provided — no experience needed.",
   },
   {
     image: warehouseHero,
+    mobileImage: warehouseHeroMobile,
     imageAlt: "International team working in a modern warehouse",
     title: "Warehouse Workers",
     desc: "Sorting, packing, and logistics roles in modern distribution centers across Romania.",
@@ -98,7 +104,13 @@ export default function RecruitHome() {
           <motion.img
             key={heroSlides[slide].image}
             src={heroSlides[slide].image}
+            srcSet={`${heroSlides[slide].mobileImage} 960w, ${heroSlides[slide].image} 1672w`}
+            sizes="100vw"
             alt={heroSlides[slide].alt}
+            width={1672}
+            height={941}
+            decoding="async"
+            fetchPriority={slide === 0 ? "high" : "auto"}
             initial={{ opacity: 0, scale: 1.04 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
@@ -169,7 +181,17 @@ export default function RecruitHome() {
                 className="group overflow-hidden rounded-xl border border-border bg-background transition-shadow hover:shadow-md sm:rounded-2xl"
               >
                 <div className="h-20 overflow-hidden bg-slate-100 sm:h-28 lg:h-32">
-                  <img src={r.image} alt={r.imageAlt} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <img
+                    src={r.image}
+                    srcSet={`${r.mobileImage} 960w, ${r.image} 1672w`}
+                    sizes="(max-width: 639px) 33vw, (max-width: 1023px) 30vw, 352px"
+                    alt={r.imageAlt}
+                    width={1672}
+                    height={941}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
                 <div className="p-3 sm:p-5">
                   <h3 className="font-display text-sm font-semibold text-ro-blue sm:text-lg lg:text-xl">{r.title}</h3>
@@ -271,7 +293,7 @@ export default function RecruitHome() {
           >
             <div>
               <div className="relative aspect-[3/2] overflow-hidden bg-slate-200">
-                <img src={teamGroup} alt="The complete Elladria Lanka Careers team" loading="lazy" className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-[1.015]" />
+                <img src={teamGroup} alt="The complete Elladria Lanka Careers team" width={1599} height={1332} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-1000 hover:scale-[1.015]" />
                 <div className="absolute inset-0 bg-gradient-to-t from-ro-blue/35 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-white/20 bg-white/90 px-4 py-3 text-ro-blue shadow-xl backdrop-blur sm:bottom-7 sm:left-7">
                   <span className="font-display text-2xl font-extrabold">7</span>
