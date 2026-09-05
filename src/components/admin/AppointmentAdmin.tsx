@@ -2,6 +2,7 @@ import { useState } from "react";
 import { CalendarOff, Loader2, Mail, Phone, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +11,13 @@ import { useAppointments, useAppointmentMutations, useAvailabilityRules, useAvai
 
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const STATUS: AppointmentStatus[] = ["pending", "confirmed", "completed", "cancelled", "no_show"];
+const STATUS_BADGE_CLASSES: Record<AppointmentStatus, string> = {
+  pending: "border-yellow-300 bg-yellow-100 text-yellow-800 hover:bg-yellow-100 dark:border-yellow-800 dark:bg-yellow-950 dark:text-yellow-300",
+  confirmed: "border-green-300 bg-green-100 text-green-800 hover:bg-green-100 dark:border-green-800 dark:bg-green-950 dark:text-green-300",
+  completed: "border-blue-300 bg-blue-100 text-blue-800 hover:bg-blue-100 dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300",
+  cancelled: "border-red-300 bg-red-100 text-red-800 hover:bg-red-100 dark:border-red-800 dark:bg-red-950 dark:text-red-300",
+  no_show: "border-slate-300 bg-slate-100 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300",
+};
 const displayStatus = (s: string) => s.replace("_", " ").replace(/^./, (c) => c.toUpperCase());
 const displayTime = (s: string) => new Date(`2000-01-01T${s}`).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
@@ -28,7 +36,7 @@ export function AppointmentsTab() {
     {!shown.length && <div className="rounded-2xl border border-dashed py-12 text-center text-sm text-muted-foreground">No appointments to show.</div>}
     {shown.map((a) => <article key={a.id} className="rounded-2xl border bg-card p-5">
       <div className="flex flex-col justify-between gap-4 sm:flex-row">
-        <div><div className="flex flex-wrap items-center gap-2"><h3 className="font-display text-lg font-semibold">{a.customer_name}</h3><span className="rounded-full bg-muted px-2.5 py-1 text-xs">{displayStatus(a.status)}</span><span className="text-xs text-muted-foreground">#{a.reference_code}</span></div>
+        <div><div className="flex flex-wrap items-center gap-2"><h3 className="font-display text-lg font-semibold">{a.customer_name}</h3><Badge variant="outline" className={STATUS_BADGE_CLASSES[a.status]}>{displayStatus(a.status)}</Badge><span className="text-xs text-muted-foreground">#{a.reference_code}</span></div>
           <p className="mt-2 font-medium">{new Date(`${a.appointment_date}T00:00:00`).toLocaleDateString(undefined, { weekday: "short", year: "numeric", month: "short", day: "numeric" })} · {displayTime(a.start_time)}–{displayTime(a.end_time)}</p>
           <p className="mt-1 text-sm text-muted-foreground">{a.vacancies?.title || "General consultation"}</p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm"><a className="flex items-center gap-1 text-primary" href={`tel:${a.phone}`}><Phone className="h-3.5 w-3.5" />{a.phone}</a><a className="flex items-center gap-1 text-primary" href={`mailto:${a.email}`}><Mail className="h-3.5 w-3.5" />{a.email}</a></div>
