@@ -1,7 +1,7 @@
 import { BadgeCheck, Eye, Globe2, Handshake, Medal, ShieldCheck, Target, UserRoundCheck } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import aboutUsHeader from "@/assets/about-us-header.jpg";
-import aboutUsHeaderMobile from "@/assets/about-us-header-mobile.jpg";
+import aboutUsHeader from "@/assets/about-us-collage-header.jpg";
+import aboutUsHeaderMobile from "@/assets/about-us-collage-header-mobile.jpg";
 import slbfeLogo from "@/assets/slbfe-logo.webp";
 import malindSriyaratna from "@/assets/team/malind-sriyaratna.jpeg";
 import rasikaPrasad from "@/assets/team/rasika-prasad.jpeg";
@@ -62,25 +62,26 @@ export default function RecruitAbout() {
       <header className="relative overflow-hidden border-b border-slate-300 bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300">
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/50 blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto max-w-[1600px] overflow-hidden border-b border-slate-300 bg-white shadow-sm">
-          <img
-            src={aboutUsHeader}
-            srcSet={`${aboutUsHeaderMobile} 800w, ${aboutUsHeader} 1303w`}
-            sizes="100vw"
-            alt="Elladria Lanka connecting Sri Lanka and Romania"
-            width={1303}
-            height={716}
-            decoding="async"
-            fetchPriority="high"
-            className="block h-auto w-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-ro-blue/65 via-ro-blue/25 to-transparent" aria-hidden="true" />
+          <picture>
+            <source media="(max-width: 639px)" srcSet={aboutUsHeaderMobile} />
+            <img
+              src={aboutUsHeader}
+              alt="Romanian landscapes and architecture representing Elladria Lanka's connection with Europe"
+              width={1600}
+              height={900}
+              decoding="async"
+              fetchPriority="high"
+              className="block h-[460px] w-full object-cover sm:h-[500px] lg:h-[600px] xl:h-[680px]"
+            />
+          </picture>
+          <div className="absolute inset-0 bg-gradient-to-r from-ro-blue/85 via-ro-blue/45 to-black/10" aria-hidden="true" />
           <div className="absolute inset-0 flex items-center">
             <div className="w-full px-4 sm:px-8 lg:px-14">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 sm:text-xs">About us</span>
-              <h1 className="mt-1 max-w-3xl font-display text-xl font-bold tracking-tight text-white/80 drop-shadow-md sm:mt-3 sm:text-4xl lg:text-5xl">
+              <span className="block text-xs font-bold uppercase tracking-[0.2em] text-white/80">About us</span>
+              <h1 className="mt-3 max-w-3xl font-display text-3xl font-bold tracking-tight text-white drop-shadow-md sm:text-4xl lg:text-5xl">
                 Bridging Sri Lankan talent with European opportunity
               </h1>
-              <p className="mt-2 max-w-2xl text-[11px] leading-4 text-white/65 drop-shadow sm:mt-5 sm:text-base sm:leading-7">
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/85 drop-shadow sm:mt-5 sm:text-base sm:leading-7">
                 Safe, transparent, and professional guidance for every stage of your international career journey.
               </p>
             </div>
