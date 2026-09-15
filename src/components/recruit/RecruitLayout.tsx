@@ -1,5 +1,5 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
-import { ArrowUpRight, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
+import { ArrowUpRight, Download, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
@@ -17,6 +17,8 @@ const socialLinks = [
   { label: "TikTok", href: "https://www.tiktok.com/@elladria.lanka.of", icon: FaTiktok },
   { label: "Facebook", href: "https://web.facebook.com/Elladrialanka/", icon: FaFacebookF },
 ];
+
+const companyProfileUrl = "/elladria-lanka-company-profile.pdf";
 
 export function RecruitLayout() {
   const [open, setOpen] = useState(false);
@@ -73,6 +75,14 @@ export function RecruitLayout() {
             >
               Book an appointment
             </a>
+            <a
+              href={companyProfileUrl}
+              download="Elladria-Lanka-Company-Profile.pdf"
+              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <Download className="h-4 w-4" />
+              Company Profile
+            </a>
           </nav>
 
           <button
@@ -107,6 +117,15 @@ export function RecruitLayout() {
               className="mt-2 block rounded-lg bg-ro-yellow px-4 py-2.5 text-center text-sm font-semibold text-ro-blue"
             >
               Book an appointment
+            </a>
+            <a
+              href={companyProfileUrl}
+              download="Elladria-Lanka-Company-Profile.pdf"
+              onClick={() => setOpen(false)}
+              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <Download className="h-4 w-4" />
+              Download Company Profile
             </a>
           </nav>
         )}
@@ -149,6 +168,7 @@ export function RecruitLayout() {
               <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Explore</h2>
               <nav className="mt-5 space-y-3" aria-label="Footer navigation">
                 {navItems.map((item) => <Link key={item.to} to={item.to} className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">{item.label}<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>)}
+                <a href={companyProfileUrl} download="Elladria-Lanka-Company-Profile.pdf" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Company Profile<Download className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" /></a>
                 <a href="#book" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Book an appointment<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></a>
               </nav>
             </div>
