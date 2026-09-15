@@ -57,6 +57,13 @@ export function BookingSection() {
               ["3", "We confirm with you", "Our team reviews the request and contacts you directly."],
             ].map(([number, title, text]) => <div key={number} className="flex gap-4"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-sm font-bold text-ro-yellow">{number}</span><div><p className="font-semibold">{title}</p><p className="mt-1 text-sm leading-6 text-white/60">{text}</p></div></div>)}</div>
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-4"><p className="flex items-center gap-2 text-sm font-semibold"><ShieldCheck className="h-4 w-4 text-ro-yellow" />Your information stays private</p><p className="mt-2 text-xs leading-5 text-white/55">Booking details are visible only to authorized Elladria Lanka administrators.</p></div>
+            <div className="mt-4 rounded-2xl border border-ro-yellow/25 bg-ro-yellow/10 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/60">Or call us directly</p>
+              <a href="tel:+94372201125" className="mt-2 flex items-center gap-3 font-display text-xl font-bold text-ro-yellow transition-colors hover:text-white">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ro-yellow text-ro-blue"><Phone className="h-4 w-4" /></span>
+                +94 37 220 1125
+              </a>
+            </div>
           </div>
         </aside>
 

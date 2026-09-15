@@ -195,13 +195,7 @@ export default function RecruitAbout() {
               <p className="mt-2 font-display text-base font-semibold text-slate-600">Founder &amp; CEO</p>
               <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
               <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
-                With over 14 years of professional experience in the Travel &amp; Tourism industry, including more than 3 years of professional experience in Romania and over 11 years of senior-level management experience in Sri Lanka, he brings a strong combination of international exposure, industry knowledge, leadership, and strategic management expertise to Elladria Lanka.
-              </p>
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-                He is a Qualified Visa Consultant with extensive practical experience in international travel, visa consultancy, migration-related services, client relationship management, business development, and professional service management. His experience working in Europe has provided him with valuable international insight into travel, tourism, employment, and cross-cultural business environments.
-              </p>
-              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-                At Elladria Lanka, he provides strategic direction and oversees the company&apos;s overall operations, with a strong focus on maintaining professional standards, ethical service, client satisfaction, and reliable international business partnerships.
+                At Elladria Lanka (Pvt) Ltd, we view recruitment as a serious responsibility that demands honesty, careful attention and professional discipline. Our purpose is not simply to facilitate overseas employment, but to help create a safe, secure and trustworthy pathway for Sri Lankan job seekers while delivering dependable manpower solutions to international employers. We believe lasting success comes from transparent communication, responsible recruitment practices and strong partnerships between candidates, employers and our international network.
               </p>
             </div>
           </div>
@@ -220,10 +214,10 @@ export default function RecruitAbout() {
               <p className="mt-2 font-display text-base font-semibold text-slate-600">General Manager | Qualified Visa Consultant</p>
               <div className="mt-7 h-1 w-16 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red" aria-hidden="true" />
               <p className="mt-7 max-w-xl text-base leading-8 text-slate-600">
-                With 17+ years of experience in Travel &amp; Tourism, including 8+ years of professional experience in Europe and 7+ years of senior management experience in Sri Lanka, he brings extensive international and management expertise to Elladria Lanka. Holding a Higher Diploma in Tourism, Hospitality &amp; Events Management and professional qualifications as a Visa Consultant, he specializes in international travel, visa consultancy, client relations, business development, and professional service management.
+                Business professional with 17+ years of experience in sales, marketing, business development, and top management. Skilled in strategic planning, leadership, international business development, and building strong client and business partnerships.
               </p>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-slate-500">
-                He leads Elladria Lanka with a strong commitment to professionalism, transparency, client satisfaction, and responsible international opportunities.
+              <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
+                He holds a BEng (Hons) in Electronic and Electrical Engineering from the University of Sunderland and an IATA Travel and Tourism Consultancy Diploma (DTTC). His expertise includes global legal systems, policy frameworks, basic administrative procedures, portal navigation, appointment-scheduling logistics, document scrutiny, turnaround time (TAT) tracking, biometric-process coaching, upselling value-added services (VAS), and VFS handling.
               </p>
             </div>
           </div>
