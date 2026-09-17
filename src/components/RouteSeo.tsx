@@ -8,6 +8,7 @@ const pages: Record<string, SeoPage> = {
   "/vacancies": { title: "European Job Vacancies for Sri Lankans | Elladria Lanka", description: "Explore current European job vacancies for Sri Lankan candidates, including driving, factory, warehouse, and logistics opportunities." },
   "/about": { title: "About Elladria Lanka | International Recruitment", description: "Learn about Elladria Lanka, a Sri Lankan international recruitment company connecting local talent with trusted employers and opportunities abroad." },
   "/careers": { title: "Careers at Elladria Lanka | Join Our Team", description: "Explore career opportunities at Elladria Lanka and join the team helping Sri Lankan professionals build rewarding international careers." },
+  "/privacy-policy": { title: "Privacy Policy | Elladria Lanka", description: "Read how Elladria Lanka collects, uses, shares, retains, and protects personal information, including data used for Google sign-in." },
   "/auth": { title: "Sign In | Elladria Lanka", description: "Sign in to Elladria Lanka.", robots: "noindex, nofollow" },
   "/reset-password": { title: "Reset Password | Elladria Lanka", description: "Reset your Elladria Lanka password.", robots: "noindex, nofollow" },
   "/admin": { title: "Administration | Elladria Lanka", description: "Elladria Lanka administration.", robots: "noindex, nofollow" },

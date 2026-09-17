@@ -13,6 +13,7 @@ import RecruitHome from "@/pages/recruit/RecruitHome";
 import RecruitVacancies from "@/pages/recruit/RecruitVacancies";
 import RecruitAbout from "@/pages/recruit/RecruitAbout";
 import RecruitCareers from "@/pages/recruit/RecruitCareers";
+import PrivacyPolicy from "@/pages/recruit/PrivacyPolicy";
 import AdminPanel from "@/pages/admin/AdminPanel";
 import Auth from "@/pages/Auth";
 import ResetPassword from "@/pages/ResetPassword";
@@ -46,6 +47,7 @@ const App = () => (
                 <Route path="/vacancies" element={<RecruitVacancies />} />
                 <Route path="/about" element={<RecruitAbout />} />
                 <Route path="/careers" element={<RecruitCareers />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>

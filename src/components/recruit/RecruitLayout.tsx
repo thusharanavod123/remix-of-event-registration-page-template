@@ -185,7 +185,7 @@ export function RecruitLayout() {
           </div>
           <div className="flex flex-col gap-5 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Elladria Lanka Careers. All rights reserved.</p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/privacy-policy" className="transition-colors hover:text-white/75">Privacy Policy</Link><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
           </div>
         </div>
         <div className="flex h-1.5" aria-hidden="true"><span className="flex-1 bg-ro-blue-soft" /><span className="flex-1 bg-ro-yellow" /><span className="flex-1 bg-ro-red" /></div>
