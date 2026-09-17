@@ -168,6 +168,7 @@ export function RecruitLayout() {
               <h2 className="font-display text-sm font-semibold uppercase tracking-[0.16em] text-white/45">Explore</h2>
               <nav className="mt-5 space-y-3" aria-label="Footer navigation">
                 {navItems.map((item) => <Link key={item.to} to={item.to} className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">{item.label}<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>)}
+                <Link to="/privacy-policy" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Privacy Policy<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>
                 <a href={companyProfileUrl} download="Elladria-Lanka-Company-Profile.pdf" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Company Profile<Download className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" /></a>
                 <a href="#book" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Book an appointment<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></a>
               </nav>
@@ -185,7 +186,7 @@ export function RecruitLayout() {
           </div>
           <div className="flex flex-col gap-5 pt-7 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
             <p>© {new Date().getFullYear()} Elladria Lanka Careers. All rights reserved.</p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/privacy-policy" className="transition-colors hover:text-white/75">Privacy Policy</Link><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3"><span className="inline-flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ro-yellow" />Sri Lanka → Europe</span><Link to="/admin" className="transition-colors hover:text-white/75">Admin access</Link></div>
           </div>
         </div>
         <div className="flex h-1.5" aria-hidden="true"><span className="flex-1 bg-ro-blue-soft" /><span className="flex-1 bg-ro-yellow" /><span className="flex-1 bg-ro-red" /></div>
