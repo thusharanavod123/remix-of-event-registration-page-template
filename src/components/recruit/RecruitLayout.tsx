@@ -1,14 +1,14 @@
 import { NavLink, Link, Outlet } from "react-router-dom";
-import { ArrowUpRight, Download, HeartHandshake, MapPin, Menu, ShieldCheck, X } from "lucide-react";
+import { ArrowUpRight, Download, HeartHandshake, MapPin, Menu, Plane, ShieldCheck, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
 import { FaFacebookF, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
 
 const navItems = [
   { to: "/", label: "Home" },
-  { to: "/vacancies", label: "Vacancies" },
+  { to: "/vacancies", label: "Find Jobs" },
   { to: "/about", label: "About Us" },
 ];
 
@@ -23,6 +23,7 @@ const companyProfileUrl = "/elladria-lanka-company-profile.pdf";
 export function RecruitLayout() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showIntro, setShowIntro] = useState(() => window.location.pathname === "/");
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 24);
@@ -31,8 +32,72 @@ export function RecruitLayout() {
     return () => window.removeEventListener("scroll", updateHeader);
   }, []);
 
+  useEffect(() => {
+    if (!showIntro) return;
+    document.body.style.overflow = "hidden";
+    const timer = window.setTimeout(() => setShowIntro(false), 5200);
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
+  }, [showIntro]);
+
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.65, ease: "easeInOut" }}
+            className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[hsl(222_55%_14%)] px-6 text-white"
+            role="status"
+            aria-label="Elladria Lanka Manpower and Recruitment Agency"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(216_65%_30%/0.55),transparent_58%)]" />
+            <motion.div
+              initial={{ x: "-75vw", y: 110, rotate: -7, opacity: 0 }}
+              animate={{ x: "75vw", y: -150, rotate: -7, opacity: [0, 1, 1, 1, 0] }}
+              transition={{ duration: 4.6, ease: [0.4, 0, 0.2, 1] }}
+              className="absolute top-1/2 z-10 text-ro-yellow drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
+              aria-hidden="true"
+            >
+              <Plane className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40" strokeWidth={1.15} />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.35, duration: 0.7 }}
+              className="relative z-20 flex flex-col items-center rounded-3xl border border-white/15 bg-[hsl(222_55%_10%/0.58)] px-7 py-8 text-center shadow-2xl backdrop-blur-md sm:px-12 sm:py-10"
+            >
+              <img src={companyLogo} alt="Elladria Lanka" className="h-auto w-64 object-contain sm:w-80" />
+              <div className="my-5 h-px w-24 bg-ro-yellow" />
+              <p className="font-display text-lg font-semibold uppercase tracking-[0.18em] text-white sm:text-2xl">
+                Manpower &amp; Recruitment Agency
+              </p>
+              <p className="mt-3 text-sm tracking-[0.12em] text-white/60">Sri Lanka to global careers</p>
+            </motion.div>
+            <div className="absolute inset-x-6 bottom-8 z-30 mx-auto max-w-md sm:bottom-10">
+              <div className="mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
+                <span>Preparing your journey</span>
+                <span>Loading</span>
+              </div>
+              <div className="h-1.5 overflow-hidden rounded-full bg-white/20">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 5.2, ease: "linear" }}
+                  className="h-full origin-left rounded-full bg-ro-yellow shadow-[0_0_16px_hsl(var(--ro-yellow)/0.65)]"
+                />
+              </div>
+            </div>
+            <button type="button" onClick={() => setShowIntro(false)} className="absolute right-5 top-5 z-30 rounded-full border border-white/20 bg-black/15 px-4 py-2 text-xs font-medium text-white/70 backdrop-blur transition-colors hover:bg-white/10 hover:text-white sm:right-7 sm:top-7">
+              Skip intro
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <motion.header
         initial={false}
         animate={{
@@ -43,11 +108,14 @@ export function RecruitLayout() {
         transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
         className="fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl"
       >
-        <motion.div initial={false} animate={{ height: scrolled ? 56 : 64 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6">
+        <motion.div initial={false} animate={{ height: scrolled ? 72 : 88 }} transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }} className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <motion.div initial={false} animate={{ scale: scrolled ? 0.95 : 1 }} transition={{ duration: 0.28 }}>
-          <Link to="/" className="block" aria-label="Elladria Lanka home">
-            <span className="block h-10 w-32 sm:h-11 sm:w-36">
+          <Link to="/" className="flex flex-col items-start" aria-label="Elladria Lanka Manpower and Recruitment Agency home">
+            <span className="block h-10 w-36 sm:h-12 sm:w-44">
               <img src={companyLogo} alt="Elladria Lanka" className="h-full w-full object-contain" />
+            </span>
+            <span className="mt-1 whitespace-nowrap text-[10px] font-semibold uppercase leading-none tracking-[0.12em] text-white/85 sm:text-xs">
+              Manpower &amp; Recruitment Agency
             </span>
           </Link>
           </motion.div>
@@ -132,7 +200,7 @@ export function RecruitLayout() {
         <motion.div initial={false} animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }} transition={{ duration: 0.4 }} className="absolute inset-x-0 bottom-0 h-px origin-center bg-gradient-to-r from-transparent via-ro-yellow/55 to-transparent" aria-hidden="true" />
       </motion.header>
 
-      <div className="h-16 shrink-0" aria-hidden="true" />
+      <div className="h-[5.5rem] shrink-0" aria-hidden="true" />
 
       <main className="flex-1">
         <Outlet />

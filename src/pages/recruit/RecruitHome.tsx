@@ -11,8 +11,7 @@ import {
 } from "lucide-react";
 import { FaqSection } from "@/components/recruit/FaqSection";
 import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import airportHero from "@/assets/hero/career-airport.jpg";
 import airportHeroMobile from "@/assets/hero/career-airport-mobile.jpg";
 import logisticsHero from "@/assets/hero/career-logistics.jpg";
@@ -20,12 +19,6 @@ import logisticsHeroMobile from "@/assets/hero/career-logistics-mobile.jpg";
 import warehouseHero from "@/assets/hero/career-warehouse.jpg";
 import warehouseHeroMobile from "@/assets/hero/career-warehouse-mobile.jpg";
 import teamGroup from "@/assets/team/team-group.jpg";
-
-const heroSlides = [
-  { image: airportHero, mobileImage: airportHeroMobile, alt: "Sri Lankan professional beginning her journey to a European career" },
-  { image: logisticsHero, mobileImage: logisticsHeroMobile, alt: "Sri Lankan logistics professional working with a modern European transport company" },
-  { image: warehouseHero, mobileImage: warehouseHeroMobile, alt: "International logistics team collaborating in a modern European warehouse" },
-];
 
 const roles = [
   {
@@ -90,34 +83,24 @@ const serviceSteps = [
 ];
 
 export default function RecruitHome() {
-  const [slide, setSlide] = useState(0);
-  useEffect(() => {
-    const timer = window.setInterval(() => setSlide((current) => (current + 1) % heroSlides.length), 6000);
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
     <div>
       {/* Hero */}
       <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-ro-blue text-white">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.img
-            key={heroSlides[slide].image}
-            src={heroSlides[slide].image}
-            srcSet={`${heroSlides[slide].mobileImage} 960w, ${heroSlides[slide].image} 1672w`}
-            sizes="100vw"
-            alt={heroSlides[slide].alt}
-            width={1672}
-            height={941}
-            decoding="async"
-            fetchPriority={slide === 0 ? "high" : "auto"}
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ opacity: { duration: 1.1, ease: "easeInOut" }, scale: { duration: 6.5, ease: "linear" } }}
-            className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
-          />
-        </AnimatePresence>
+        <motion.img
+          src={airportHero}
+          srcSet={`${airportHeroMobile} 960w, ${airportHero} 1672w`}
+          sizes="100vw"
+          alt="Sri Lankan professional beginning her journey to a European career"
+          width={1672}
+          height={941}
+          decoding="async"
+          fetchPriority="high"
+          initial={{ opacity: 0, scale: 1.025 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(222_55%_10%/0.96)] via-[hsl(222_55%_10%/0.72)] to-[hsl(222_55%_10%/0.08)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_55%_10%/0.52)] via-transparent to-black/10" />
 
@@ -125,21 +108,22 @@ export default function RecruitHome() {
           <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} className="max-w-3xl">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">
             <span className="h-2 w-2 animate-pulse rounded-full bg-ro-yellow" />
-            Now recruiting for Romania
+            International recruitment &amp; foreign employment
           </span>
           <h1 className="mt-7 max-w-3xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-            Your European career starts <span className="text-ro-yellow">here.</span>
+            Sri Lankan talent. <span className="text-ro-yellow">Global careers.</span>
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-white/75 sm:text-lg">
-            We connect Sri Lankan job seekers with trusted employers in Romania — with full support
-            from application to arrival.
+            Elladria Lanka is an international recruitment company connecting Sri Lankan job seekers
+            with trusted employers in Romania and across Europe, with professional support from
+            application to arrival.
           </p>
           <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
             <Link
               to="/vacancies"
               className="inline-flex items-center gap-2 rounded-full bg-ro-yellow px-7 py-3.5 text-sm font-semibold text-ro-blue shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5"
             >
-              View available jobs <ArrowRight className="h-4 w-4" />
+              Explore job vacancies <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="#book"
@@ -151,14 +135,7 @@ export default function RecruitHome() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2" role="tablist" aria-label="Hero slides">
-          {heroSlides.map((item, index) => (
-            <button key={item.image} type="button" onClick={() => setSlide(index)} className="group flex h-8 items-center" aria-label={`Show slide ${index + 1}`} aria-selected={slide === index} role="tab">
-              <span className={`block h-1.5 rounded-full transition-all duration-500 ${slide === index ? "w-10 bg-ro-yellow" : "w-5 bg-white/45 group-hover:bg-white/75"}`} />
-            </button>
-          ))}
-        </div>
-        <motion.div key={`progress-${slide}`} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 6, ease: "linear" }} className="absolute bottom-0 left-0 z-20 h-1 w-full origin-left bg-ro-yellow" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 z-20 h-1 bg-ro-yellow" aria-hidden="true" />
       </section>
 
       <PartnerMarquee />
