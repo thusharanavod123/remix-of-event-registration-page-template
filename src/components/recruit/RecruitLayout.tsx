@@ -20,11 +20,12 @@ const socialLinks = [
 ];
 
 const companyProfileUrl = "/elladria-lanka-company-profile.pdf";
+const introEnabled = true;
 
 export function RecruitLayout() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [showIntro, setShowIntro] = useState(() => window.location.pathname === "/");
+  const [showIntro, setShowIntro] = useState(() => introEnabled && window.location.pathname === "/");
 
   useEffect(() => {
     const updateHeader = () => setScrolled(window.scrollY > 24);
