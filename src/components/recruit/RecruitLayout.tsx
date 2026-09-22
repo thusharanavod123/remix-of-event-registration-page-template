@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BookingSection } from "./BookingSection";
 import { FaFacebookF, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 import companyLogo from "@/assets/elladria-lanka-logo-cropped.png";
+import introWorker from "@/assets/intro-worker-traveler.png";
 
 const navItems = [
   { to: "/", label: "Home" },
@@ -55,23 +56,39 @@ export function RecruitLayout() {
             aria-label="Elladria Lanka Manpower and Recruitment Agency"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(216_65%_30%/0.55),transparent_58%)]" />
-            <motion.div
-              initial={{ x: "-75vw", y: 110, rotate: -7, opacity: 0 }}
-              animate={{ x: "75vw", y: -150, rotate: -7, opacity: [0, 1, 1, 1, 0] }}
-              transition={{ duration: 4.6, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute top-1/2 z-10 text-ro-yellow drop-shadow-[0_10px_24px_rgba(0,0,0,0.45)]"
-              aria-hidden="true"
-            >
-              <Plane className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40" strokeWidth={1.15} />
-            </motion.div>
+            <div className="absolute inset-x-0 bottom-[15%] z-10 mx-auto h-40 max-w-5xl sm:h-48" aria-hidden="true">
+              <div className="absolute inset-x-6 bottom-3 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+              <motion.div
+                initial={{ opacity: 0, x: 35, scale: 0.94 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="absolute bottom-2 right-[3%] text-white/90 drop-shadow-[0_14px_28px_rgba(0,0,0,0.5)] sm:right-[8%]"
+              >
+                <Plane className="h-28 w-28 -rotate-12 sm:h-40 sm:w-40 lg:h-48 lg:w-48" strokeWidth={1.05} />
+              </motion.div>
+              <motion.div
+                initial={{ left: "3%", opacity: 0, scale: 1, y: 0 }}
+                animate={{ left: "72%", opacity: [0, 1, 1, 1, 0], scale: [1, 1, 1, 0.72, 0.3], y: [0, 0, -2, -10, -30] }}
+                transition={{ duration: 5.05, ease: "linear", times: [0, 0.08, 0.72, 0.9, 1] }}
+                className="absolute bottom-3 text-ro-yellow drop-shadow-[0_8px_14px_rgba(0,0,0,0.55)]"
+              >
+                <motion.img
+                  src={introWorker}
+                  alt=""
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 0.48, repeat: Infinity, ease: "easeInOut" }}
+                  className="h-28 w-auto object-contain drop-shadow-[0_10px_18px_rgba(0,0,0,0.5)] sm:h-36 lg:h-40"
+                />
+              </motion.div>
+            </div>
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.35, duration: 0.7 }}
-              className="relative z-20 flex flex-col items-center rounded-3xl border border-white/15 bg-[hsl(222_55%_10%/0.58)] px-7 py-8 text-center shadow-2xl backdrop-blur-md sm:px-12 sm:py-10"
+              className="absolute top-[9%] z-20 flex flex-col items-center rounded-3xl border border-white/15 bg-[hsl(222_55%_10%/0.58)] px-7 py-6 text-center shadow-2xl backdrop-blur-md sm:top-[10%] sm:px-12 sm:py-8"
             >
               <img src={companyLogo} alt="Elladria Lanka" className="h-auto w-64 object-contain sm:w-80" />
-              <div className="my-5 h-px w-24 bg-ro-yellow" />
+              <div className="my-4 h-px w-24 bg-ro-yellow" />
               <p className="font-display text-lg font-semibold uppercase tracking-[0.18em] text-white sm:text-2xl">
                 Manpower &amp; Recruitment Agency
               </p>

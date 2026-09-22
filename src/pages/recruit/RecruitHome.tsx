@@ -18,6 +18,7 @@ import logisticsHero from "@/assets/hero/career-logistics.jpg";
 import logisticsHeroMobile from "@/assets/hero/career-logistics-mobile.jpg";
 import warehouseHero from "@/assets/hero/career-warehouse.jpg";
 import warehouseHeroMobile from "@/assets/hero/career-warehouse-mobile.jpg";
+import workersPlaneHero from "@/assets/hero/workers-plane-recruitment-hero.png";
 import teamGroup from "@/assets/team/team-group.jpg";
 
 const roles = [
@@ -88,18 +89,17 @@ export default function RecruitHome() {
       {/* Hero */}
       <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-ro-blue text-white">
         <motion.img
-          src={airportHero}
-          srcSet={`${airportHeroMobile} 960w, ${airportHero} 1672w`}
+          src={workersPlaneHero}
           sizes="100vw"
-          alt="Sri Lankan professional beginning her journey to a European career"
-          width={1672}
-          height={941}
+          alt="Sri Lankan workers from different industries standing in front of a passenger aircraft"
+          width={1916}
+          height={821}
           decoding="async"
           fetchPriority="high"
           initial={{ opacity: 0, scale: 1.025 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(222_55%_10%/0.96)] via-[hsl(222_55%_10%/0.72)] to-[hsl(222_55%_10%/0.08)]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_55%_10%/0.52)] via-transparent to-black/10" />
@@ -111,12 +111,11 @@ export default function RecruitHome() {
             International recruitment &amp; foreign employment
           </span>
           <h1 className="mt-7 max-w-3xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-            Sri Lankan talent. <span className="text-ro-yellow">Global careers.</span>
+            Your Trusted International <span className="text-ro-yellow">Recruitment Agency.</span>
           </h1>
           <p className="mt-7 max-w-xl text-base leading-7 text-white/75 sm:text-lg">
-            Elladria Lanka is an international recruitment company connecting Sri Lankan job seekers
-            with trusted employers in Romania and across Europe, with professional support from
-            application to arrival.
+            Connecting Sri Lankan talent with trusted employers and career opportunities across Europe,
+            with professional support from application to arrival.
           </p>
           <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
             <Link
