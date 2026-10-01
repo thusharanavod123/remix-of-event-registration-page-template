@@ -20,6 +20,8 @@ const socialLinks = [
 ];
 
 const companyProfileUrl = "/elladria-lanka-company-profile.pdf";
+const officeAddress = "No. 208, Udadigan Junction, Thiththwella, Kurunegala, Sri Lanka";
+const officeMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
 const introEnabled = true;
 
 export function RecruitLayout() {
@@ -242,6 +244,16 @@ export function RecruitLayout() {
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><ShieldCheck className="h-4 w-4 text-ro-yellow" /> Vetted employers</span>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-xs text-white/80"><HeartHandshake className="h-4 w-4 text-ro-yellow" /> End-to-end support</span>
               </div>
+              <a href={officeMapUrl} target="_blank" rel="noreferrer" className="group mt-6 flex w-fit max-w-sm items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 transition-colors hover:border-ro-yellow/50 hover:bg-white/10" aria-label={`Open Elladria Lanka office location in Google Maps: ${officeAddress}`}>
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-ro-yellow" />
+                <span>
+                  <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-white/45">Visit our office</span>
+                  <span className="mt-1 block text-sm leading-6 text-white/80 group-hover:text-white">
+                    No. 208, Udadigan Junction, Thiththwella<br />
+                    Kurunegala, Sri Lanka
+                  </span>
+                </span>
+              </a>
               <div className="mt-7 flex items-center gap-2" aria-label="Elladria Lanka Careers social media">
                 {socialLinks.map(({ label, href, icon: Icon }) => (
                   <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={`Follow Elladria Lanka Careers on ${label}`} title={label} className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition-all duration-300 hover:-translate-y-1 hover:border-ro-yellow hover:bg-ro-yellow hover:text-ro-blue hover:shadow-lg hover:shadow-ro-yellow/15">
