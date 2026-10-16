@@ -19,7 +19,6 @@ const socialLinks = [
   { label: "Facebook", href: "https://web.facebook.com/Elladrialanka/", icon: FaFacebookF },
 ];
 
-const companyProfileUrl = "/elladria-lanka-company-profile.pdf";
 const officeAddress = "No. 208, Udadigan Junction, Thiththwella, Kurunegala, Sri Lanka";
 const officeMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
 const introEnabled = true;
@@ -163,14 +162,15 @@ export function RecruitLayout() {
             >
               Book an appointment
             </a>
-            <a
-              href={companyProfileUrl}
-              download="Elladria-Lanka-Company-Profile.pdf"
-              className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+            <button
+              type="button"
+              disabled
+              title="Company profile download is temporarily unavailable"
+              className="flex cursor-not-allowed items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium text-white/40"
             >
               <Download className="h-4 w-4" />
               Company Profile
-            </a>
+            </button>
           </nav>
 
           <button
@@ -206,15 +206,15 @@ export function RecruitLayout() {
             >
               Book an appointment
             </a>
-            <a
-              href={companyProfileUrl}
-              download="Elladria-Lanka-Company-Profile.pdf"
-              onClick={() => setOpen(false)}
-              className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+            <button
+              type="button"
+              disabled
+              title="Company profile download is temporarily unavailable"
+              className="mt-2 flex w-full cursor-not-allowed items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-white/40"
             >
               <Download className="h-4 w-4" />
               Download Company Profile
-            </a>
+            </button>
           </nav>
         )}
         <motion.div initial={false} animate={{ scaleX: scrolled ? 1 : 0, opacity: scrolled ? 1 : 0 }} transition={{ duration: 0.4 }} className="absolute inset-x-0 bottom-0 h-px origin-center bg-gradient-to-r from-transparent via-ro-yellow/55 to-transparent" aria-hidden="true" />
@@ -267,7 +267,7 @@ export function RecruitLayout() {
               <nav className="mt-5 space-y-3" aria-label="Footer navigation">
                 {navItems.map((item) => <Link key={item.to} to={item.to} className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">{item.label}<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>)}
                 <Link to="/privacy-policy" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Privacy Policy<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></Link>
-                <a href={companyProfileUrl} download="Elladria-Lanka-Company-Profile.pdf" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Company Profile<Download className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" /></a>
+                <button type="button" disabled title="Company profile download is temporarily unavailable" className="flex w-fit cursor-not-allowed items-center gap-1.5 text-sm text-white/40">Company Profile<Download className="h-3.5 w-3.5" /></button>
                 <a href="#book" className="group flex w-fit items-center gap-1.5 text-sm text-white/75 transition-colors hover:text-white">Book an appointment<ArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" /></a>
               </nav>
             </div>
