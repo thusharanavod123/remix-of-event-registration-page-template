@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import {
   ArrowRight,
-  Briefcase,
+  ArrowUpRight,
   CalendarCheck2,
   ClipboardCheck,
   FileSearch,
@@ -10,8 +10,8 @@ import {
   Route,
 } from "lucide-react";
 import { FaqSection } from "@/components/recruit/FaqSection";
-import { PartnerMarquee } from "@/components/recruit/PartnerMarquee";
-import { motion } from "framer-motion";
+
+import { motion, useReducedMotion } from "framer-motion";
 import airportHero from "@/assets/hero/career-airport.jpg";
 import airportHeroMobile from "@/assets/hero/career-airport-mobile.jpg";
 import logisticsHero from "@/assets/hero/career-logistics.jpg";
@@ -33,7 +33,7 @@ const roles = [
     mobileImage: airportHeroMobile,
     imageAlt: "Sri Lankan professional beginning an international career journey",
     title: "Factory Workers",
-    desc: "Production and assembly line positions with full training provided — no experience needed.",
+    desc: "Production and assembly line positions with full training provided - no experience needed.",
   },
   {
     image: warehouseHero,
@@ -83,174 +83,35 @@ const serviceSteps = [
 ];
 
 export default function RecruitHome() {
-  return (
-    <div>
-      {/* Hero */}
-      <section className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-ro-blue text-white">
-        <motion.img
-          src={workersPlaneHero}
-          sizes="100vw"
-          alt="Sri Lankan workers from different industries standing in front of a passenger aircraft"
-          width={1916}
-          height={821}
-          decoding="async"
-          fetchPriority="high"
-          initial={{ opacity: 0, scale: 1.025 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(222_55%_10%/0.96)] via-[hsl(222_55%_10%/0.72)] to-[hsl(222_55%_10%/0.08)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[hsl(222_55%_10%/0.52)] via-transparent to-black/10" />
+  const reduceMotion = useReducedMotion();
+  return <div className="recruit-home">
+    <section className="recruit-hero" aria-labelledby="home-heading">
+      <motion.img src={workersPlaneHero} alt="Sri Lankan workers standing in front of an aircraft, ready for their next chapter" fetchPriority="high" className="recruit-hero-image" initial={reduceMotion ? false : { scale: 1.06 }} animate={{ scale: 1 }} transition={{ duration: 2 }} />
+      <div className="recruit-hero-shade" />
+      <div className="recruit-hero-topline"><span>International recruitment / Sri Lanka</span><span>Built around your future</span></div>
+      <motion.div className="recruit-hero-copy" initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8 }}>
+        <p className="recruit-kicker"><span className="recruit-signal" />Talent without borders</p>
+        <h1 id="home-heading">Your ambition.<br />A world of<br /><em>opportunity.</em></h1>
+        <div className="recruit-hero-actions"><Link className="recruit-button recruit-button-light" to="/vacancies">Explore opportunities <ArrowUpRight size={19} /></Link><a className="recruit-text-link" href="#book">Start your journey <ArrowUpRight size={17} /></a></div>
+      </motion.div>
+      <div className="recruit-hero-bottom"><span>Trusted international recruitment.<br />From application to arrival.</span><a href="#mission">Discover Elladria <span>↓</span></a><span>LK <span className="recruit-route-line" /> EU</span></div>
+    </section>
 
-        <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-20 sm:px-6 lg:py-24">
-          <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-ro-yellow" />
-            International recruitment &amp; foreign employment
-          </span>
-          <h1 className="mt-7 max-w-3xl font-display text-5xl font-bold leading-[0.98] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[5.25rem]">
-            Your Trusted International <span className="text-ro-yellow">Recruitment Agency.</span>
-          </h1>
-          <p className="mt-7 max-w-xl text-base leading-7 text-white/75 sm:text-lg">
-            Connecting Sri Lankan talent with trusted employers and career opportunities across Europe,
-            with professional support from application to arrival.
-          </p>
-          <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row">
-            <Link
-              to="/vacancies"
-              className="inline-flex items-center gap-2 rounded-full bg-ro-yellow px-7 py-3.5 text-sm font-semibold text-ro-blue shadow-lg shadow-black/15 transition-transform hover:-translate-y-0.5"
-            >
-              Explore job vacancies <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="#book"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/20"
-            >
-              Book an office visit
-            </a>
-          </div>
-          </motion.div>
-        </div>
+    <section id="mission" className="recruit-mission recruit-section">
+      <div className="recruit-section-label"><span>01 / Our purpose</span><span>People. Progress. Possibility.</span></div>
+      <div className="recruit-mission-grid"><h2>Great talent deserves<br />a bigger <em>horizon.</em></h2><div><p>We connect Sri Lankan talent with trusted employers and career opportunities across Europe.</p><p className="recruit-secondary-copy">The next step can change everything. We make it clearer, with professional guidance through recruitment, documents, visa preparation, and departure.</p><Link className="recruit-text-link" to="/about">Meet Elladria Lanka <ArrowUpRight size={18} /></Link></div></div>
+    </section>
 
-        <div className="absolute inset-x-0 bottom-0 z-20 h-1 bg-ro-yellow" aria-hidden="true" />
-      </section>
+    <section className="recruit-opportunities recruit-section">
+      <div className="recruit-section-label"><span>02 / Opportunities</span><span>Romania / Europe</span></div>
+      <div className="recruit-section-heading"><h2>Put your skills<br /><em>in motion.</em></h2><Link className="recruit-text-link" to="/vacancies">View all vacancies <ArrowUpRight size={18} /></Link></div>
+      <div className="recruit-roles">{roles.map((role, index) => <Link className="recruit-role" to="/vacancies" key={role.title}><div className="recruit-role-image"><img src={role.image} srcSet={`${role.mobileImage} 960w, ${role.image} 1672w`} sizes="(max-width: 760px) 100vw, 33vw" loading="lazy" alt={role.imageAlt} /><span>0{index + 1} / Career pathways</span><ArrowUpRight className="recruit-role-arrow" /></div><div className="recruit-role-copy"><h3>{role.title}</h3><p>{role.desc}</p><span className="recruit-kicker">Explore role <ArrowRight size={15} /></span></div></Link>)}</div>
+    </section>
 
-      <PartnerMarquee />
+    <section className="recruit-horizon"><img src={logisticsHero} alt="European transport and logistics career opportunities" loading="lazy" /><div className="recruit-horizon-shade" /><div className="recruit-horizon-copy"><p className="recruit-kicker">From Sri Lanka. Forward.</p><h2>A new country.<br />The same ambition.</h2><p>Interested in opportunities across Europe? Register your interest and talk to our team about your next step.</p><a className="recruit-button recruit-button-light" href="#book">Register your interest <ArrowUpRight size={19} /></a></div></section>
 
-      {/* Roles */}
-      <section className="border-t border-border bg-card py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="text-center">
-            <span className="text-xs font-semibold uppercase tracking-wide text-ro-red">
-              Open roles in Romania
-            </span>
-            <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">
-              Opportunities available now
-            </h2>
-          </div>
-          <div className="mt-10 grid grid-cols-3 gap-2 sm:gap-4 lg:gap-6">
-            {roles.map((r) => (
-              <div
-                key={r.title}
-                className="group overflow-hidden rounded-xl border border-border bg-background transition-shadow hover:shadow-md sm:rounded-2xl"
-              >
-                <div className="h-20 overflow-hidden bg-slate-100 sm:h-28 lg:h-32">
-                  <img
-                    src={r.image}
-                    srcSet={`${r.mobileImage} 960w, ${r.image} 1672w`}
-                    sizes="(max-width: 639px) 33vw, (max-width: 1023px) 30vw, 352px"
-                    alt={r.imageAlt}
-                    width={1672}
-                    height={941}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-3 sm:p-5">
-                  <h3 className="font-display text-sm font-semibold text-ro-blue sm:text-lg lg:text-xl">{r.title}</h3>
-                  <p className="mt-2 hidden text-sm leading-6 text-muted-foreground sm:block">{r.desc}</p>
-                  <Link
-                    to="/vacancies"
-                    className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary sm:mt-4 sm:text-sm"
-                  >
-                    See details <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Expansion banner */}
-      <section className="bg-ro-blue py-14 text-primary-foreground">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 text-center sm:px-6">
-          <Briefcase className="h-8 w-8 text-ro-yellow" />
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
-            Expanding across Europe next month
-          </h2>
-          <p className="max-w-2xl text-sm opacity-85">
-            Soon we'll be placing candidates in neighboring European countries too. Register your
-            interest today and be first in line when new vacancies open.
-          </p>
-          <a
-            href="#book"
-            className="mt-2 rounded-full bg-ro-yellow px-7 py-3 text-sm font-semibold text-ro-blue transition-opacity hover:opacity-90"
-          >
-            Register your interest
-          </a>
-        </div>
-      </section>
-
-      {/* Customer journey */}
-      <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-28">
-        <div className="pointer-events-none absolute -left-24 top-24 h-64 w-64 rounded-full bg-ro-blue/5 blur-3xl" aria-hidden="true" />
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-ro-red">How we support you</span>
-            <h2 className="mt-4 font-display text-3xl font-bold tracking-tight text-ro-blue sm:text-4xl lg:text-5xl">
-              Your journey, clearly guided from start to takeoff
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-              Seven simple steps, with expert guidance at every stage of your visa application and travel preparation.
-            </p>
-          </div>
-
-          <ol className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {serviceSteps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <motion.li
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.3) }}
-                  className={`group relative rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${index === serviceSteps.length - 1 ? "md:col-span-2 lg:col-span-3 lg:mx-auto lg:w-[calc(33.333%-0.85rem)]" : ""}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-ro-blue text-white shadow-md shadow-ro-blue/15">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <span className="font-display text-4xl font-extrabold text-ro-blue/10 transition-colors group-hover:text-ro-yellow">{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                  <p className="mt-5 text-xs font-bold uppercase tracking-[0.16em] text-ro-red">Step {index + 1}</p>
-                  <h3 className="mt-2 font-display text-xl font-bold leading-snug text-ro-blue">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.description}</p>
-                  <div className="absolute inset-x-6 bottom-0 h-1 origin-left scale-x-0 rounded-full bg-gradient-to-r from-ro-blue via-ro-yellow to-ro-red transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
-                </motion.li>
-              );
-            })}
-          </ol>
-        </div>
-      </section>
-
-      {/* Team introduction is temporarily hidden. */}
-
-      {/* FAQ */}
-      <FaqSection />
-    </div>
-  );
+    <section className="recruit-journey recruit-section"><div className="recruit-section-label"><span>03 / The journey</span><span>With you at every step</span></div><div className="recruit-journey-grid"><div className="recruit-journey-intro"><h2>From first step<br />to <em>takeoff.</em></h2><p>Seven clear stages. One dedicated team. Expert guidance for your visa application and travel preparation.</p><a className="recruit-text-link" href="#book">Let’s plan your journey <ArrowUpRight size={18} /></a></div><ol className="recruit-step-list">{serviceSteps.map((step, i) => <li key={step.title}><span className="recruit-step-number">0{i + 1}</span><div><h3>{step.title}</h3><p>{step.description}</p></div><step.icon size={22} strokeWidth={1.2} aria-hidden="true" /></li>)}</ol></div></section>
+    <FaqSection />
+  </div>;
 }
+
